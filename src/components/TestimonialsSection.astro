@@ -1,0 +1,145 @@
+---
+/*
+  ============================================================================
+  TESTIMONIALS — PLACEHOLDER / DISABLED UNTIL MRR CLEARANCE
+  ============================================================================
+
+  This component is intentionally NOT imported anywhere yet. It exists as a
+  scaffold so we can drop in real testimonials quickly once they've been
+  collected and approved.
+
+  Regulatory notes — DO NOT publish testimonials without confirming all of
+  the following with LPL Marketing Regulatory Review (MRR):
+
+    1. SEC Marketing Rule (Rule 206(4)-1) — testimonials/endorsements are
+       permitted for investment advisers only with prescribed disclosures
+       and oversight. Each testimonial must clearly and prominently
+       disclose:
+         - whether the person giving it is a client or a non-client
+         - whether cash or non-cash compensation was provided
+         - material conflicts of interest stemming from the relationship
+
+    2. FINRA Rule 2210 — communications with the public. Testimonials on a
+       broker-dealer / registered-rep site require a written supervisory
+       review (MRR) and specific disclosures, including (where applicable):
+         - the testimonial may not be representative of other clients'
+           experience
+         - past performance is no guarantee of future results
+         - if more than a nominal sum was paid, the fact and amount
+
+    3. State rules — Florida and other states where Alissa is licensed may
+       impose additional disclosure or recordkeeping requirements.
+
+    4. Recordkeeping — keep signed consent + the unedited source for every
+       testimonial on file.
+
+  Action items before enabling this section:
+    [ ] Collect signed written consent from each testimonial author
+    [ ] Confirm with MRR whether names / photos / locations are permitted
+    [ ] Draft the exact disclosure language MRR wants directly under the
+        section (replace the Lorem ipsum block below)
+    [ ] Have MRR pre-approve every quote verbatim
+    [ ] Import this component into src/pages/index.astro (slot suggested:
+        between <AboutTeaser /> and <LicensingMap />)
+  ============================================================================
+*/
+
+interface Testimonial {
+  /** Initials or first-name-only until MRR confirms what's permitted. */
+  attribution: string;
+  /** "Client" | "Non-client" — required disclosure under SEC Rule 206(4)-1 */
+  relationship: 'Client' | 'Non-client';
+  /** Whether compensation was provided. Required disclosure. */
+  compensated: boolean;
+  quote: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    attribution: 'Placeholder',
+    relationship: 'Client',
+    compensated: false,
+    quote:
+      'Lorem ipsum placeholder testimonial — replace with MRR-approved quote verbatim. Do not edit, condense, or rearrange approved quotes without re-submitting.',
+  },
+  {
+    attribution: 'Placeholder',
+    relationship: 'Client',
+    compensated: false,
+    quote:
+      'Lorem ipsum placeholder testimonial — second slot. Disclosure block below this section is also Lorem ipsum and must be replaced with MRR-supplied language.',
+  },
+  {
+    attribution: 'Placeholder',
+    relationship: 'Client',
+    compensated: false,
+    quote:
+      'Lorem ipsum placeholder testimonial — third slot. Keep the count odd (3 or 5) so the grid balances on the home page.',
+  },
+];
+---
+
+<section class="band fade" id="testimonials" aria-labelledby="testimonials-h">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">IV &nbsp;—&nbsp; In their words</span>
+      <h2 id="testimonials-h">What it sounds like on the other end.</h2>
+      <p class="lead">A few words from people Alissa has worked with. Names and photos used with written permission.</p>
+    </header>
+
+    <div class="qual-grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
+      {testimonials.map((t) => (
+        <figure class="qual-item testimonial">
+          <blockquote class="q">
+            <p>&ldquo;{t.quote}&rdquo;</p>
+          </blockquote>
+          <figcaption class="testimonial-meta">
+            <b>{t.attribution}</b>
+            <span class="testimonial-disclosure" aria-label="Required disclosure">
+              {t.relationship}
+              {t.compensated ? ' · compensated' : ' · no compensation'}
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    {/*
+      MRR-supplied disclosure block goes here. The text below is Lorem ipsum
+      and MUST be replaced before this section is rendered to a live page.
+    */}
+    <aside class="testimonial-disclaimer" aria-label="Testimonial disclosures">
+      <p>
+        <strong>Lorem ipsum placeholder — replace with MRR-approved disclosure.</strong>
+        Typical content: testimonial may not be representative of other clients'
+        experience; no guarantee of future performance; statement of compensation
+        status; explanation of any material conflicts of interest.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .testimonial blockquote {
+    margin: 0;
+  }
+  .testimonial-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-top: 0.75rem;
+    font-size: var(--s-small);
+  }
+  .testimonial-disclosure {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .testimonial-disclaimer {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding: 1rem 1.25rem;
+    border-left: 2px solid currentColor;
+    opacity: 0.65;
+    font-size: var(--s-small);
+    max-width: 60ch;
+  }
+</style>

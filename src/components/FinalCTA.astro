@@ -8,21 +8,27 @@ interface Props {
 }
 const {
   heading = 'Twenty minutes. No pitch deck. Just a <i>conversation.</i>',
-  href = '#calendly',
+  href = 'https://oncehub.com/AlissaWhittle',
   label = 'Schedule a 20-minute call',
   sectionId,
   phone = true,
 } = Astro.props;
+
+const isExternal = typeof href === 'string' && /^https?:\/\//i.test(href);
 ---
 
-{/* TODO: replace #calendly with real Calendly URL once Alissa provides it */}
 <section class="final-cta fade" id={sectionId} aria-labelledby="cta-h">
   <div class="wrap">
     <div class="fc-grid">
       <h2 id="cta-h" set:html={heading} />
       <div class="fc-aside">
         <p>Mornings work best. Tavernier office, video, or phone. Your call.</p>
-        <a href={href} class="btn btn-on-teal">
+        <a
+          href={href}
+          class="btn btn-on-teal"
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+        >
           {label}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
         </a>
