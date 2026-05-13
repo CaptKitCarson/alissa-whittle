@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PNPM_VERSION = "10"
+
+# Sensible defaults for a static Astro site — no headers/redirects yet.
+# Add a [[headers]] block here when CSP / referrer / cache-control
+# policies are decided (likely during LPL compliance review).

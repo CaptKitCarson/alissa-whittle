@@ -1,31 +1,80 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import portrait from '../assets/photos/headshot-contact.jpg';
 ---
 
 <BaseLayout
   title="Contact — Alissa Whittle · LPL Financial · Tavernier, FL"
-  description="Call, text, or email Alissa Whittle. Office at 92200 Overseas Highway, Tavernier, Florida Keys."
+  description="Call, text, or email Alissa Whittle, BFA™ CPFA — Financial Advisor with LPL Financial. Office at 92200 Overseas Highway, Tavernier, Florida Keys."
 >
-  <section class="band fade in" aria-labelledby="contact-h">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Contact</span>
+          <h1>A short conversation is <i>the easy part.</i></h1>
+          <p class="hero-sub">Call or text. Mornings work best, but reach out whenever fits — the phone is the same all day. No gatekeeper, no script.</p>
+          <div class="hero-meta">
+            <span>Tavernier, FL</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>(305) 928-2928</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Alissa.Whittle@LPL.com</span>
+          </div>
+        </div>
+        <figure class="hero-portrait portrait-figure" aria-label="Portrait of Alissa Whittle">
+          <Image
+            src={portrait}
+            alt="Alissa Whittle, Financial Advisor with LPL Financial"
+            widths={[400, 600, 900]}
+            sizes="(min-width: 880px) 40vw, 90vw"
+            quality={82}
+            class="portrait-photo"
+          />
+          <figcaption class="portrait-caption">
+            <b>Alissa Whittle, BFA™ CPFA</b><br />
+            Financial Advisor · LPL Financial
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <section class="band fade" id="ways-to-reach" aria-labelledby="reach-h">
     <div class="wrap">
       <header class="section-head">
-        <span class="eyebrow">Contact</span>
-        <h1 id="contact-h">A short conversation is the easy part.</h1>
-        <p class="lead">Call or text. Mornings work best, but reach out whenever fits — the phone is the same all day.</p>
+        <span class="eyebrow">I &nbsp;—&nbsp; Ways to reach her</span>
+        <h2 id="reach-h">Three doors, all open.</h2>
       </header>
 
-      <div class="qual-grid" style="margin-top: 2.5rem;">
+      <div class="qual-grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
         <div class="qual-item">
           <span class="n">01</span>
-          <p class="q"><b>Call or text</b><br /><a href="tel:13059282928" class="tlink">(305) 928-2928</a></p>
+          <p class="q"><b>Call or text</b><br /><a href="tel:13059282928" class="tlink">(305) 928-2928</a><br /><span style="color: var(--muted); font-size: var(--s-small);">Same number all day. Texts are fine for scheduling.</span></p>
         </div>
         <div class="qual-item">
           <span class="n">02</span>
-          <p class="q"><b>Email</b><br /><a href="mailto:Alissa.Whittle@LPL.com" class="tlink">Alissa.Whittle@LPL.com</a></p>
+          <p class="q"><b>Email</b><br /><a href="mailto:Alissa.Whittle@LPL.com" class="tlink">Alissa.Whittle@LPL.com</a><br /><span style="color: var(--muted); font-size: var(--s-small);">For longer questions or document handoffs.</span></p>
         </div>
         <div class="qual-item">
           <span class="n">03</span>
-          <p class="q"><b>Office</b><br />92200 Overseas Highway<br />Tavernier, FL 33070</p>
+          <p class="q"><b>Office</b><br />92200 Overseas Highway<br />Tavernier, FL 33070<br /><span style="color: var(--muted); font-size: var(--s-small);">MM 92 · Conference-room meetings by appointment.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta fade" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div class="fc-grid">
+        <h2 id="cta-h">Or skip the back-and-forth and <i>just grab a slot.</i></h2>
+        <div class="fc-aside">
+          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
+          <a href="/#schedule" class="btn btn-on-teal">
+            Schedule a 20-minute call
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
     </div>
