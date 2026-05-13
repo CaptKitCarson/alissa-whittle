@@ -1,0 +1,164 @@
+<section class="band licensing fade" id="licensing" aria-labelledby="lic-h">
+  <div class="wrap">
+    <header class="license-head">
+      <div>
+        <span class="eyebrow">IV &nbsp;—&nbsp; Licensed in</span>
+        <h2 id="lic-h">Eleven securities. Twelve insurance. <i>One advisor.</i></h2>
+      </div>
+      <p>Securities registrations and insurance licenses are state-specific. Hover or tap a state to see which apply.</p>
+    </header>
+
+    <div class="legend" aria-hidden="false">
+      <span class="sw"><span class="chip sec" aria-hidden="true"></span> Securities <span class="count">·&nbsp;11&nbsp;states</span></span>
+      <span class="sw"><span class="chip ins" aria-hidden="true"></span> Insurance <span class="count">·&nbsp;12&nbsp;states</span></span>
+      <span class="sw"><span class="chip both" aria-hidden="true"></span> Both <span class="count">·&nbsp;4&nbsp;states</span></span>
+      <span class="sw"><span class="chip none" aria-hidden="true"></span> Not licensed</span>
+    </div>
+
+    <div class="license-stage">
+      <div class="map-scroll">
+        <div class="map" id="map" role="grid" aria-label="United States licensing tile map">
+          <!-- tiles injected by JS -->
+        </div>
+      </div>
+      <aside class="state-info" id="state-info" aria-live="polite">
+        <span class="si-eyebrow">State detail</span>
+        <h3 class="si-name" id="si-name">Florida <i>— home.</i></h3>
+        <div class="si-status">
+          <div class="row"><span class="l">Securities</span><span class="v yes" id="si-sec">Registered</span></div>
+          <div class="row"><span class="l">Insurance</span><span class="v yes" id="si-ins">Licensed</span></div>
+        </div>
+        <p class="si-note" id="si-note">Alissa is based in Tavernier and meets with Keys clients in-person.</p>
+        <div class="si-summary">
+          <span><b>19</b> states served</span>
+          <span><b>4</b> have both licenses</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  const STATE_LAYOUT: Record<string, [number, number]> = {
+    ME: [11, 1],
+    VT: [10, 2], NH: [11, 2],
+    WA: [1, 3], MT: [3, 3], ND: [4, 3], MN: [5, 3], WI: [6, 3], MI: [8, 3], NY: [9, 3], MA: [10, 3], RI: [11, 3],
+    OR: [1, 4], ID: [2, 4], WY: [3, 4], SD: [4, 4], IA: [5, 4], IL: [6, 4], IN: [7, 4], OH: [8, 4], PA: [9, 4], NJ: [10, 4], CT: [11, 4],
+    CA: [1, 5], NV: [2, 5], UT: [3, 5], CO: [4, 5], NE: [5, 5], MO: [6, 5], KY: [7, 5], WV: [8, 5], VA: [9, 5], MD: [10, 5], DE: [11, 5],
+    AZ: [2, 6], NM: [3, 6], KS: [4, 6], AR: [6, 6], TN: [7, 6], NC: [8, 6], SC: [9, 6], DC: [10, 6],
+    TX: [4, 7], OK: [5, 7], LA: [6, 7], MS: [7, 7], AL: [8, 7], GA: [9, 7],
+    AK: [1, 8], HI: [2, 8], FL: [10, 8],
+  };
+
+  const NAMES: Record<string, string> = {
+    AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California', CO: 'Colorado', CT: 'Connecticut', DC: 'D.C.', DE: 'Delaware', FL: 'Florida',
+    GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa', KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana', ME: 'Maine',
+    MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan', MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri', MT: 'Montana', NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire',
+    NJ: 'New Jersey', NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota', OH: 'Ohio', OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania', RI: 'Rhode Island',
+    SC: 'South Carolina', SD: 'South Dakota', TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VT: 'Vermont', VA: 'Virginia', WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming',
+  };
+
+  const SECURITIES = new Set(['CA', 'CO', 'FL', 'GA', 'MN', 'MO', 'NV', 'NY', 'OK', 'TX', 'VA']);
+  const INSURANCE = new Set(['AL', 'CO', 'FL', 'KS', 'MI', 'MO', 'MT', 'NC', 'NM', 'OH', 'SD', 'TX']);
+
+  const NOTES: Record<string, string> = {
+    FL: 'Alissa is based in Tavernier and meets with Keys clients in-person.',
+    CO: 'Both securities and insurance — full advisory relationships available.',
+    MO: 'Both securities and insurance — full advisory relationships available.',
+    TX: 'Both securities and insurance — full advisory relationships available.',
+    CA: 'Securities registration only.',
+    GA: 'Securities registration only.',
+    MN: 'Securities registration only.',
+    NV: 'Securities registration only.',
+    NY: 'Securities registration only.',
+    OK: 'Securities registration only.',
+    VA: 'Securities registration only.',
+    AL: 'Insurance license only.',
+    KS: 'Insurance license only.',
+    MI: 'Insurance license only.',
+    MT: 'Insurance license only.',
+    NC: 'Insurance license only.',
+    NM: 'Insurance license only.',
+    OH: 'Insurance license only.',
+    SD: 'Insurance license only.',
+  };
+
+  function statusFor(code: string): 'both' | 'sec' | 'ins' | null {
+    const s = SECURITIES.has(code);
+    const i = INSURANCE.has(code);
+    if (s && i) return 'both';
+    if (s) return 'sec';
+    if (i) return 'ins';
+    return null;
+  }
+
+  const map = document.getElementById('map');
+  if (map) {
+    const frag = document.createDocumentFragment();
+
+    Object.entries(STATE_LAYOUT).forEach(([code, [col, row]]) => {
+      const t = document.createElement('button');
+      t.type = 'button';
+      t.className = 'tile';
+      t.style.gridColumn = String(col);
+      t.style.gridRow = String(row);
+      t.dataset.code = code;
+      t.textContent = code;
+      t.setAttribute('aria-label', NAMES[code] || code);
+
+      const active = statusFor(code);
+      if (active) {
+        t.dataset.active = active;
+        t.setAttribute('tabindex', '0');
+      } else {
+        t.setAttribute('aria-disabled', 'true');
+        t.setAttribute('tabindex', '-1');
+      }
+      frag.appendChild(t);
+    });
+    map.appendChild(frag);
+
+    const siName = document.getElementById('si-name');
+    const siSec = document.getElementById('si-sec');
+    const siIns = document.getElementById('si-ins');
+    const siNote = document.getElementById('si-note');
+
+    function setActive(code: string) {
+      if (!code) return;
+      const active = statusFor(code);
+      if (!active) return;
+      document.querySelectorAll('.tile.is-current').forEach((el) => el.classList.remove('is-current'));
+      const tile = map!.querySelector(`[data-code="${code}"]`);
+      if (tile) tile.classList.add('is-current');
+
+      const isHome = code === 'FL';
+      if (siName) siName.innerHTML = NAMES[code] + (isHome ? ' <i>— home.</i>' : '');
+      const sec = SECURITIES.has(code);
+      const ins = INSURANCE.has(code);
+      if (siSec) {
+        siSec.textContent = sec ? 'Registered' : 'Not registered';
+        siSec.className = 'v ' + (sec ? 'yes' : 'no');
+      }
+      if (siIns) {
+        siIns.textContent = ins ? 'Licensed' : 'Not licensed';
+        siIns.className = 'v ' + (ins ? 'yes' : 'no');
+      }
+      if (siNote) siNote.textContent = NOTES[code] || '';
+    }
+
+    map.addEventListener('mouseover', (e) => {
+      const t = (e.target as HTMLElement).closest('.tile[data-active]') as HTMLElement | null;
+      if (t && t.dataset.code) setActive(t.dataset.code);
+    });
+    map.addEventListener('focusin', (e) => {
+      const t = (e.target as HTMLElement).closest('.tile[data-active]') as HTMLElement | null;
+      if (t && t.dataset.code) setActive(t.dataset.code);
+    });
+    map.addEventListener('click', (e) => {
+      const t = (e.target as HTMLElement).closest('.tile[data-active]') as HTMLElement | null;
+      if (t && t.dataset.code) setActive(t.dataset.code);
+    });
+
+    setActive('FL');
+  }
+</script>

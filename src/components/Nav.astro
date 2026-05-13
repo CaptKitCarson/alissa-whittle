@@ -1,0 +1,19 @@
+---
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/events', label: 'Events' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="wordmark" aria-label="Alissa Whittle home">Alissa<span class="a"> Whittle</span></a>
+    <div class="nav-links">
+      {links.map((link) => <a href={link.href} class="l">{link.label}</a>)}
+      <a href="/#schedule" class="btn btn-primary nav-cta">Schedule</a>
+    </div>
+  </div>
+</nav>
