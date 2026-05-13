@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FinalCTA from '../components/FinalCTA.astro';
 
 const verifyLinks = [
   {
@@ -14,7 +15,7 @@ const verifyLinks = [
   },
   {
     name: 'LPL Financial',
-    detail: 'Broker/dealer & RIA — corporate disclosures, leadership, regulatory standing',
+    detail: 'Broker/dealer & RIA. Corporate disclosures, leadership, regulatory standing',
     href: 'https://www.lpl.com/',
   },
 ];
@@ -102,7 +103,7 @@ const portalLinks = [
       <header class="section-head">
         <span class="eyebrow">III &nbsp;—&nbsp; The library</span>
         <h2 id="library-h">Reading, coming together.</h2>
-        <p class="lead">These categories are placeholders. Each piece of writing has to clear compliance review before it goes up — which is the right order, even if it takes a beat.</p>
+        <p class="lead">These categories are placeholders. Each piece of writing has to clear compliance review before it goes up. Which is the right order, even if it takes a beat.</p>
       </header>
       <div class="qual-grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
         <div class="qual-item">
@@ -111,28 +112,18 @@ const portalLinks = [
         </div>
         <div class="qual-item">
           <span class="n">02</span>
-          <p class="q"><b>Planning notes</b><br />Practical explainers — Social Security timing, Roth conversion math, RMD strategy, charitable giving. Written plainly. No fear-selling.</p>
+          <p class="q"><b>Planning notes</b><br />Practical explainers: Social Security timing, Roth conversion math, RMD strategy, charitable giving. Written plainly. No fear-selling.</p>
         </div>
         <div class="qual-item">
           <span class="n">03</span>
-          <p class="q"><b>For Keys residents</b><br />Notes specific to living in the Florida Keys — hurricane preparation for your financial plan, second-home dynamics, the realities of an island economy.</p>
+          <p class="q"><b>For Keys residents</b><br />Notes specific to living in the Florida Keys: hurricane preparation for your financial plan, second-home dynamics, the realities of an island economy.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="final-cta fade" aria-labelledby="cta-h">
-    <div class="wrap">
-      <div class="fc-grid">
-        <h2 id="cta-h">Or skip the reading and just <i>have the conversation.</i></h2>
-        <div class="fc-aside">
-          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
-          <a href="/#schedule" class="btn btn-on-teal">
-            Schedule a 20-minute call
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <FinalCTA
+    heading="Or skip the reading and just <i>have the conversation.</i>"
+    href="/#schedule"
+  />
 </BaseLayout>

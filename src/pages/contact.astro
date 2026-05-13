@@ -1,12 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FinalCTA from '../components/FinalCTA.astro';
 import portrait from '../assets/photos/headshot-contact.jpg';
 ---
 
 <BaseLayout
   title="Contact — Alissa Whittle · LPL Financial · Tavernier, FL"
-  description="Call, text, or email Alissa Whittle, BFA™ CPFA — Financial Advisor with LPL Financial. Office at 92200 Overseas Highway, Tavernier, Florida Keys."
+  description="Call, text, or email Alissa Whittle, BFA™ CPFA, Financial Advisor with LPL Financial. Office at 92200 Overseas Highway, Tavernier, Florida Keys."
 >
   <header class="hero">
     <div class="wrap">
@@ -14,7 +15,7 @@ import portrait from '../assets/photos/headshot-contact.jpg';
         <div class="hero-copy">
           <span class="eyebrow">Contact</span>
           <h1>A short conversation is <i>the easy part.</i></h1>
-          <p class="hero-sub">Call or text. Mornings work best, but reach out whenever fits — the phone is the same all day. No gatekeeper, no script.</p>
+          <p class="hero-sub">Call or text. Mornings work best, but reach out whenever fits. The phone is the same all day. No gatekeeper, no script.</p>
           <div class="hero-meta">
             <span>Tavernier, FL</span>
             <span class="dot" aria-hidden="true"></span>
@@ -65,18 +66,9 @@ import portrait from '../assets/photos/headshot-contact.jpg';
     </div>
   </section>
 
-  <section class="final-cta fade" aria-labelledby="cta-h">
-    <div class="wrap">
-      <div class="fc-grid">
-        <h2 id="cta-h">Or skip the back-and-forth and <i>just grab a slot.</i></h2>
-        <div class="fc-aside">
-          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
-          <a href="/#schedule" class="btn btn-on-teal">
-            Schedule a 20-minute call
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <FinalCTA
+    heading="Or skip the back-and-forth and <i>just grab a slot.</i>"
+    href="/#schedule"
+    phone={false}
+  />
 </BaseLayout>

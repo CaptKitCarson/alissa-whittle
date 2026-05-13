@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FinalCTA from '../components/FinalCTA.astro';
 import portrait from '../assets/photos/headshot-about.jpg';
 
 const community = [
@@ -50,8 +51,8 @@ const community = [
   {
     eyebrow: 'Earlier chapters',
     items: [
-      { name: 'Family Readiness Group', detail: 'Former head — Fort Benning' },
-      { name: 'Enlisted Spouses Club', detail: 'Former head — Fort Benning' },
+      { name: 'Family Readiness Group', detail: 'Former head, Fort Benning' },
+      { name: 'Enlisted Spouses Club', detail: 'Former head, Fort Benning' },
     ],
   },
 ];
@@ -67,7 +68,7 @@ const community = [
         <div class="hero-copy">
           <span class="eyebrow">About &nbsp;·&nbsp; the long version</span>
           <h1>Community first. <i>Investments</i> second.</h1>
-          <p class="hero-sub">Alissa Whittle, BFA™, CPFA — Financial Advisor with LPL Financial. Seventeen years in the industry, independent as of 2026. Based in Tavernier — the Florida Keys town she chose, not just the one she works in.</p>
+          <p class="hero-sub">Alissa Whittle, BFA™, CPFA. Financial Advisor with LPL Financial. Seventeen years in the industry, independent as of 2026. Based in Tavernier, the Florida Keys town she chose, not just the one she works in.</p>
           <div class="hero-meta">
             <span>BFA™ · CPFA</span>
             <span class="dot" aria-hidden="true"></span>
@@ -102,10 +103,10 @@ const community = [
         <h2 id="bio-h">A practice built around showing up.</h2>
       </header>
       <div class="bio-prose">
-        <p>Alissa Whittle has been in financial planning for more than seventeen years. Her background sits at an unusual intersection — <strong>accounting, business management, and marketing</strong> — which means a client's plan, balance sheet, and the way it gets explained over coffee tend to land in the same conversation. She holds the <strong>BFA™ (Behavioral Financial Advisor)</strong> and <strong>CPFA (Certified Plan Fiduciary Advisor)</strong> designations.</p>
-        <p>In <strong>2026</strong>, she stepped out of a regional firm to operate independently under <strong>LPL Financial</strong> — keeping the broker/dealer infrastructure that lets her serve clients across nineteen states, but trading a team-of-many for a relationship-of-one. The clients she works with are families, professionals, and Keys residents at the points in life where the answers actually matter: a sale, a retirement, an inheritance, a second act.</p>
+        <p>Alissa Whittle has been in financial planning for more than seventeen years. Her background sits at an unusual intersection of <strong>accounting, business management, and marketing</strong>, which means a client's plan, balance sheet, and the way it gets explained over coffee tend to land in the same conversation. She holds the <strong>BFA™ (Behavioral Financial Advisor)</strong> and <strong>CPFA (Certified Plan Fiduciary Advisor)</strong> designations.</p>
+        <p>In <strong>2026</strong>, she stepped out of a regional firm to operate independently under <strong>LPL Financial</strong>. She kept the broker/dealer infrastructure that lets her serve clients across nineteen states, but traded a team-of-many for a relationship-of-one. The clients she works with are families, professionals, and Keys residents at the points in life where the answers actually matter: a sale, a retirement, an inheritance, a second act.</p>
         <p>Her work is fiduciary, not commissioned. Conversations happen at her desk in Tavernier, over video, or on a call after the school run. Plans are written documents, not brochures. Quarterly check-ins happen because they were scheduled, not because something went sideways. Phones get picked up the same day.</p>
-        <p>What sits underneath all of that — and shows up in nearly every conversation — is a long, deliberate record of community work. Girl Scouts leader since 2011. Foster parent since 2012. Host family for exchange students, mission work in Bolivia, reef restoration in the Keys. She does both jobs the same way: by showing up, knowing your name, and staying for the long version.</p>
+        <p>What sits underneath all of that, and shows up in nearly every conversation, is a long, deliberate record of community work. Girl Scouts leader since 2011. Foster parent since 2012. Host family for exchange students, mission work in Bolivia, reef restoration in the Keys. She does both jobs the same way: by showing up, knowing your name, and staying for the long version.</p>
       </div>
     </div>
   </section>
@@ -159,18 +160,8 @@ const community = [
     </div>
   </section>
 
-  <section class="final-cta fade" aria-labelledby="cta-h">
-    <div class="wrap">
-      <div class="fc-grid">
-        <h2 id="cta-h">Now that you've read the long version, <i>let's talk.</i></h2>
-        <div class="fc-aside">
-          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
-          <a href="/#schedule" class="btn btn-on-teal">
-            Schedule a 20-minute call
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <FinalCTA
+    heading="Now that you've read the long version, <i>let's talk.</i>"
+    href="/#schedule"
+  />
 </BaseLayout>
