@@ -1,18 +1,117 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    eyebrow: '01',
+    title: 'Investment management',
+    body: 'Discretionary and non-discretionary portfolios built around your actual situation — time horizon, tax picture, withdrawal needs — not a target-date fund and a phone call once a year. Custodied through LPL Financial.',
+    notes: 'Fee-based advisory · Fiduciary standard',
+  },
+  {
+    eyebrow: '02',
+    title: 'Retirement income planning',
+    body: 'Accumulation through working years, then a deliberate distribution strategy: which account to draw from first, when to claim Social Security, how to think about Roth conversions, and how to keep RMDs from blowing up your tax year.',
+    notes: 'IRAs · 401(k) rollovers · Roth strategy · Social Security timing',
+  },
+  {
+    eyebrow: '03',
+    title: 'Tax coordination',
+    body: 'Working alongside your CPA, not replacing them. Asset location, harvesting, withdrawal sequencing, and charitable strategies — so the plan and the tax return are on speaking terms.',
+    notes: 'Coordination with your tax professional · Alissa is not a CPA',
+  },
+  {
+    eyebrow: '04',
+    title: 'Insurance review',
+    body: 'Life, disability, long-term care — the ones most people inherit by accident and never revisit. We look at what you actually have, what you actually need, and where the gap is closer than you think.',
+    notes: 'Licensed in 12 states for insurance · See footer for state list',
+  },
+  {
+    eyebrow: '05',
+    title: 'Estate planning support',
+    body: 'Coordination with your estate attorney to make sure beneficiary designations, trust funding, and account titling actually match the document. Alissa is not an attorney; she translates between the document and the dollars.',
+    notes: 'Coordination with your estate attorney · Alissa does not draft legal documents',
+  },
+  {
+    eyebrow: '06',
+    title: 'Education funding',
+    body: '529 plans, custodial accounts, and the conversation about how much is enough. For families, foster families, and anyone funding a kid that isn\'t legally theirs but might as well be.',
+    notes: '529 plans · UTMA / UGMA · Tax-favored education savings',
+  },
+];
 ---
 
 <BaseLayout
-  title="Services — Alissa Whittle · LPL Financial"
-  description="Investment management, retirement planning, tax coordination, insurance, and estate planning through LPL Financial."
+  title="Services — Alissa Whittle · LPL Financial · Tavernier, FL"
+  description="Investment management, retirement income planning, tax coordination, insurance, estate planning support, and education funding through LPL Financial."
 >
-  <section class="band fade in" aria-labelledby="services-h">
+  <header class="hero" style="padding-bottom: clamp(2.5rem, 5vw, 4rem);">
+    <div class="wrap">
+      <div class="hero-copy" style="max-width: 44rem;">
+        <span class="eyebrow">Services</span>
+        <h1>The work, plainly described.</h1>
+        <p class="hero-sub">Six areas of practice. Most clients use four or five of them at any given moment, and the mix shifts as life does. None of these are products being sold to you — they're conversations being had with you, and decisions being made deliberately.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="band fade" aria-labelledby="services-list-h">
+    <div class="wrap">
+      <h2 id="services-list-h" class="sr-only">Service offerings</h2>
+      <div class="services-list">
+        {services.map((svc) => (
+          <article class="service-row">
+            <div class="service-marker">
+              <span class="eyebrow plain">{svc.eyebrow}</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-title">{svc.title}</h3>
+              <p class="service-prose">{svc.body}</p>
+              <span class="service-notes">{svc.notes}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule-band" aria-hidden="true"></div></div>
+
+  <section class="band fade" aria-labelledby="not-h">
     <div class="wrap">
       <header class="section-head">
-        <span class="eyebrow">Services</span>
-        <h1 id="services-h">What we work on together.</h1>
-        <p class="lead">Services list — investments, retirement, tax coordination, insurance, estate planning. Coming together during compliance review.</p>
+        <span class="eyebrow">A short list of what this is not.</span>
+        <h2 id="not-h">If you're looking for any of these, it's a no.</h2>
       </header>
+      <div class="qual-grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
+        <div class="qual-item">
+          <span class="n">·</span>
+          <p class="q">Stock-picking, day-trading, or anything that requires a Bloomberg terminal and a Red Bull.</p>
+        </div>
+        <div class="qual-item">
+          <span class="n">·</span>
+          <p class="q">Sales of a specific product first, plan-fitting afterward. The order matters and it's the wrong order.</p>
+        </div>
+        <div class="qual-item">
+          <span class="n">·</span>
+          <p class="q">Guaranteed returns, "alpha," or any market-timing theatrics. Capital markets are not a casino floor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta fade" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div class="fc-grid">
+        <h2 id="cta-h">A twenty-minute call sorts <i>most of this</i> out.</h2>
+        <div class="fc-aside">
+          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
+          <a href="/#schedule" class="btn btn-on-teal">
+            Schedule a 20-minute call
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>

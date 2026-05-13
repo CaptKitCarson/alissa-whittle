@@ -1,18 +1,138 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const verifyLinks = [
+  {
+    name: 'FINRA BrokerCheck',
+    detail: 'Alissa\'s license history, employment record, and disclosures',
+    href: 'https://brokercheck.finra.org/individual/summary/6445648',
+  },
+  {
+    name: 'SEC Investment Adviser Public Disclosure',
+    detail: 'Firm-level disclosures and Form ADV for LPL Financial',
+    href: 'https://adviserinfo.sec.gov/',
+  },
+  {
+    name: 'LPL Financial',
+    detail: 'Broker/dealer & RIA — corporate disclosures, leadership, regulatory standing',
+    href: 'https://www.lpl.com/',
+  },
+];
+
+const portalLinks = [
+  {
+    name: 'AccountView',
+    detail: 'Statements, transactions, and account balances through LPL',
+    href: 'https://accountview.lpl.com/web/login',
+  },
+  {
+    name: 'eMoney (Wealth Plan)',
+    detail: 'Aggregated accounts, plan progress, document vault',
+    href: 'https://wealth.emaplan.com/',
+  },
+];
 ---
 
 <BaseLayout
   title="Resources — Alissa Whittle · LPL Financial"
-  description="Educational resources, market commentary, and tools."
+  description="Verify Alissa's credentials, access client portals, and find LPL Financial corporate resources. Market commentary and planning guides coming after compliance review."
 >
-  <section class="band fade in" aria-labelledby="resources-h">
+  <header class="hero" style="padding-bottom: clamp(2.5rem, 5vw, 4rem);">
+    <div class="wrap">
+      <div class="hero-copy" style="max-width: 44rem;">
+        <span class="eyebrow">Resources</span>
+        <h1>Verify, access, and read more.</h1>
+        <p class="hero-sub">Three short lists. Official records, client portals, and a small library of reading that will land here as it clears compliance review.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="band fade" aria-labelledby="verify-h">
     <div class="wrap">
       <header class="section-head">
-        <span class="eyebrow">Resources</span>
-        <h1 id="resources-h">Reading worth your time.</h1>
-        <p class="lead">Market commentary, planning guides, and the occasional Market Minute. Coming together after compliance review.</p>
+        <span class="eyebrow">I &nbsp;—&nbsp; Verify</span>
+        <h2 id="verify-h">Trust, then verify.</h2>
+        <p class="lead">Every working financial relationship in this country sits on top of public records. Yours should be one you've actually looked at.</p>
       </header>
+      <ul class="resource-list">
+        {verifyLinks.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener" class="resource-row">
+              <div>
+                <span class="r-name">{link.name}</span>
+                <span class="r-detail">{link.detail}</span>
+              </div>
+              <span class="r-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule-band" aria-hidden="true"></div></div>
+
+  <section class="band fade" aria-labelledby="portals-h">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="eyebrow">II &nbsp;—&nbsp; Client portals</span>
+        <h2 id="portals-h">For existing clients.</h2>
+        <p class="lead">Both portals open in a new tab. If you need help logging in or haven't been onboarded yet, call <a href="tel:13059282928" class="tlink">(305) 928-2928</a>.</p>
+      </header>
+      <ul class="resource-list">
+        {portalLinks.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener" class="resource-row">
+              <div>
+                <span class="r-name">{link.name}</span>
+                <span class="r-detail">{link.detail}</span>
+              </div>
+              <span class="r-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule-band" aria-hidden="true"></div></div>
+
+  <section class="band fade" aria-labelledby="library-h">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="eyebrow">III &nbsp;—&nbsp; The library</span>
+        <h2 id="library-h">Reading, coming together.</h2>
+        <p class="lead">These categories are placeholders. Each piece of writing has to clear compliance review before it goes up — which is the right order, even if it takes a beat.</p>
+      </header>
+      <div class="qual-grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
+        <div class="qual-item">
+          <span class="n">01</span>
+          <p class="q"><b>Market Minute</b><br />Short video commentaries on what's moving and what isn't. The MountainTop archive is being re-edited; new episodes will land here.</p>
+        </div>
+        <div class="qual-item">
+          <span class="n">02</span>
+          <p class="q"><b>Planning notes</b><br />Practical explainers — Social Security timing, Roth conversion math, RMD strategy, charitable giving. Written plainly. No fear-selling.</p>
+        </div>
+        <div class="qual-item">
+          <span class="n">03</span>
+          <p class="q"><b>For Keys residents</b><br />Notes specific to living in the Florida Keys — hurricane preparation for your financial plan, second-home dynamics, the realities of an island economy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta fade" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div class="fc-grid">
+        <h2 id="cta-h">Or skip the reading and just <i>have the conversation.</i></h2>
+        <div class="fc-aside">
+          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
+          <a href="/#schedule" class="btn btn-on-teal">
+            Schedule a 20-minute call
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
