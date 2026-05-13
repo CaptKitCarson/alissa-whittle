@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MonogramMark from '../components/MonogramMark.astro';
 import Hero from '../components/Hero.astro';
 import QualifyingSection from '../components/QualifyingSection.astro';
 import ProcessSection from '../components/ProcessSection.astro';
@@ -112,6 +113,7 @@ const websiteSchema = {
 ---
 
 <BaseLayout schema={[personSchema, financialServiceSchema, websiteSchema]}>
+  <MonogramMark />
   <Hero />
   <QualifyingSection />
   <ProcessSection />

@@ -1,0 +1,43 @@
+<aside class="signature-mark" aria-label="Alissa Whittle monogram">
+  <div class="wrap">
+    <div class="signature-mark-inner">
+      <span class="eyebrow plain">A &nbsp;·&nbsp; W &nbsp;·&nbsp; a maker's mark</span>
+      <svg class="monogram-mark monogram-big" viewBox="0 0 230 162" role="img" aria-label="AW monogram for Alissa Whittle" id="monogram-big">
+        <g>
+          <path class="stroke s1" pathLength="1" d="M70,22 L30,140"/>
+          <path class="stroke s2" pathLength="1" d="M70,22 L110,140"/>
+          <path class="stroke s3 crossbar" pathLength="1" d="M49,85 L91,85"/>
+          <path class="stroke s4 w-zig" pathLength="1" d="M110,140 L140,30 L170,140 L200,22"/>
+        </g>
+        <g>
+          <path class="serif" d="M22,141 L38,141"/>
+          <path class="serif" d="M104,141 L116,141"/>
+          <path class="serif" d="M164,141 L176,141"/>
+          <path class="serif" d="M66,22 L74,22"/>
+          <path class="serif" d="M196,22 L204,22"/>
+        </g>
+      </svg>
+      <p class="signature-cap"><i>Alissa Whittle</i><span class="sep">·</span>Tavernier, Florida</p>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const monogramBig = document.getElementById('monogram-big');
+  if (monogramBig) {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      monogramBig.classList.add('is-drawn');
+    } else {
+      const mio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-drawn');
+            mio.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.45 });
+      mio.observe(monogramBig);
+    }
+  }
+</script>
