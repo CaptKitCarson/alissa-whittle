@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import headshot from '../assets/photos/headshot-hero.jpg';
+---
+
 <header class="hero">
   <div class="wrap">
     <div class="hero-grid">
@@ -21,11 +26,15 @@
         </div>
       </div>
       <figure class="hero-portrait portrait-figure" aria-label="Portrait of Alissa Whittle">
-        <div class="placeholder" role="img" aria-label="Portrait placeholder, 4 by 5">
-          <span class="ph-corner">PORTRAIT</span>
-          <span class="ph-label">Headshot — TBD</span>
-          <span class="ph-ratio">4 : 5</span>
-        </div>
+        <Image
+          src={headshot}
+          alt="Alissa Whittle, independent fiduciary financial advisor"
+          widths={[400, 600, 900, 1200]}
+          sizes="(min-width: 880px) 40vw, 90vw"
+          quality={82}
+          class="portrait-photo"
+          loading="eager"
+        />
         <figcaption class="portrait-caption">
           <b>Alissa Whittle</b><br />
           MountainTop Financial → LPL Financial · Tavernier

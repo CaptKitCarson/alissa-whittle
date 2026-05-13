@@ -25,5 +25,6 @@ pnpm-debug.log*
 
 # source materials kept locally — large originals, OpenDesign exports,
 # client-provided photos/videos, compliance PDFs. Site uses processed
-# copies in public/ or src/assets/.
-assets/
+# copies in public/ or src/assets/. Leading slash anchors this to the
+# repo root so src/assets/ stays tracked.
+/assets/

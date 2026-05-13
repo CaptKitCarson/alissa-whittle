@@ -1,18 +1,173 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import portrait from '../assets/photos/headshot-about.jpg';
+
+const community = [
+  {
+    eyebrow: 'Family & youth',
+    items: [
+      { name: 'Girl Scouts', detail: 'Leader since 2011' },
+      { name: 'Foster parent', detail: 'Since 2012' },
+      { name: 'Greenheart Exchange', detail: 'Host family + regional coordinator' },
+      { name: 'Up with People', detail: 'Host family' },
+      { name: 'Foreign exchange', detail: 'Host family' },
+    ],
+  },
+  {
+    eyebrow: 'Service & civic',
+    items: [
+      { name: 'Rotary', detail: '' },
+      { name: 'Business & Professional Women', detail: 'BPW' },
+      { name: 'Chi Sigma Phi', detail: '' },
+      { name: 'Toastmasters', detail: '' },
+      { name: 'Chamber of Commerce', detail: '' },
+      { name: 'Community Foundation', detail: '' },
+      { name: 'Leadership Success Academy', detail: '2024 cohort' },
+    ],
+  },
+  {
+    eyebrow: 'Local & environment',
+    items: [
+      { name: 'Coral Restoration Foundation', detail: 'CRF' },
+      { name: 'Reef Restore USA', detail: '' },
+      { name: 'Island Fest', detail: 'Volunteer' },
+      { name: 'Gigantic Nautical Market', detail: 'Volunteer' },
+      { name: 'Mosaic', detail: 'Sponsor' },
+      { name: 'Social Olympics', detail: '' },
+      { name: 'Our House program', detail: '' },
+    ],
+  },
+  {
+    eyebrow: 'Faith & advocacy',
+    items: [
+      { name: 'Bible study', detail: '' },
+      { name: 'MMI', detail: 'Mission trip to Bolivia' },
+      { name: 'iCare', detail: '' },
+      { name: 'Human-trafficking rescue', detail: 'Volunteer' },
+    ],
+  },
+  {
+    eyebrow: 'Earlier chapters',
+    items: [
+      { name: 'Family Readiness Group', detail: 'Former head — Fort Benning' },
+      { name: 'Enlisted Spouses Club', detail: 'Former head — Fort Benning' },
+    ],
+  },
+];
 ---
 
 <BaseLayout
   title="About Alissa Whittle — Independent Fiduciary · Tavernier, FL"
-  description="Seventeen years in financial planning, now operating independently under LPL Financial. Girl Scouts leader since 2011, foster parent since 2012, host family for exchange students."
+  description="Seventeen years in financial planning, independent under LPL Financial. Girl Scouts leader since 2011, foster parent since 2012, mission work in Bolivia, reef restoration. The full story."
 >
-  <section class="band fade in" aria-labelledby="about-page-h">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">About &nbsp;·&nbsp; the long version</span>
+          <h1>Community first. <i>Investments</i> second.</h1>
+          <p class="hero-sub">Seventeen years in financial planning. Independent under LPL Financial. Based in Tavernier — the Florida Keys town she chose, not just the one she works in.</p>
+          <div class="hero-meta">
+            <span>CRD&nbsp;6445648</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Fiduciary</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>19 states</span>
+          </div>
+        </div>
+        <figure class="hero-portrait portrait-figure" aria-label="Portrait of Alissa Whittle">
+          <Image
+            src={portrait}
+            alt="Alissa Whittle, independent fiduciary financial advisor"
+            widths={[400, 600, 900, 1200]}
+            sizes="(min-width: 880px) 40vw, 90vw"
+            quality={82}
+            class="portrait-photo"
+            loading="eager"
+          />
+          <figcaption class="portrait-caption">
+            <b>Alissa Whittle</b><br />
+            MountainTop Financial → LPL Financial · Tavernier
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <section class="band fade" id="bio" aria-labelledby="bio-h">
     <div class="wrap">
       <header class="section-head">
-        <span class="eyebrow">About</span>
-        <h1 id="about-page-h">Community first. <i>Investments</i> second.</h1>
-        <p class="lead">Full bio, community involvement, and headshot — coming together as content lands. Sections below are placeholders.</p>
+        <span class="eyebrow">I &nbsp;—&nbsp; The work</span>
+        <h2 id="bio-h">A practice built around showing up.</h2>
       </header>
+      <div class="bio-prose">
+        <p>Alissa Whittle has been in financial planning for more than seventeen years. In <strong>2026</strong>, she stepped out of a regional firm to operate independently under <strong>LPL Financial</strong> — keeping the broker/dealer infrastructure that lets her serve clients across nineteen states, but trading a team-of-many for a relationship-of-one. The clients she works with are families, professionals, and Keys residents at the points in life where the answers actually matter: a sale, a retirement, an inheritance, a second act.</p>
+        <p>Her work is fiduciary, not commissioned. Conversations happen at her desk in Tavernier, over video, or on a call after the school run. Plans are written documents, not brochures. Quarterly check-ins happen because they were scheduled, not because something went sideways. Phones get picked up the same day.</p>
+        <p>What sits underneath all of that — and shows up in nearly every conversation — is a long, deliberate record of community work. Girl Scouts leader since 2011. Foster parent since 2012. Host family for exchange students, mission work in Bolivia, reef restoration in the Keys. She does both jobs the same way: by showing up, knowing your name, and staying for the long version.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule-band" aria-hidden="true"></div></div>
+
+  <section class="band fade" id="community" aria-labelledby="community-h">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="eyebrow">II &nbsp;—&nbsp; In the community</span>
+        <h2 id="community-h">Where she shows up when she's not at her desk.</h2>
+        <p class="lead">A working list. Some of these are decade-plus commitments. Some are one-time. All of them say something about how she chooses to spend her hours.</p>
+      </header>
+
+      <div class="community-grid">
+        {community.map((group) => (
+          <article class="community-group">
+            <span class="eyebrow plain">{group.eyebrow}</span>
+            <ul class="community-list">
+              {group.items.map((item) => (
+                <li>
+                  <span class="ci-name">{item.name}</span>
+                  {item.detail && <span class="ci-detail">{item.detail}</span>}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band fade" id="credentials" aria-labelledby="cred-h">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="eyebrow">III &nbsp;—&nbsp; Credentials</span>
+        <h2 id="cred-h">The boring (but important) part.</h2>
+      </header>
+      <div class="about-meta about-meta-grid">
+        <span><b>17+ yrs</b>industry experience</span>
+        <span><b>Fiduciary</b>not commission-based</span>
+        <span><b>LPL Financial</b>broker/dealer + RIA</span>
+        <span><b>CRD&nbsp;6445648</b>FINRA registered</span>
+        <span><b>11 states</b>securities licensed</span>
+        <span><b>12 states</b>insurance licensed</span>
+        <span><b>Tavernier, FL</b>Florida Keys based</span>
+        <span><b>BrokerCheck</b><a href="https://brokercheck.finra.org/individual/summary/6445648" target="_blank" rel="noopener" class="tlink">Verify ↗</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta fade" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div class="fc-grid">
+        <h2 id="cta-h">Now that you've read the long version, <i>let's talk.</i></h2>
+        <div class="fc-aside">
+          <p>Mornings work best. Tavernier office, video, or phone — your call.</p>
+          <a href="/#schedule" class="btn btn-on-teal">
+            Schedule a 20-minute call
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
