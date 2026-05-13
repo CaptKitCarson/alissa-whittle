@@ -6,9 +6,112 @@ import ProcessSection from '../components/ProcessSection.astro';
 import AboutTeaser from '../components/AboutTeaser.astro';
 import LicensingMap from '../components/LicensingMap.astro';
 import FinalCTA from '../components/FinalCTA.astro';
+
+const SITE_URL = 'https://alissawhittle.com';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Alissa Whittle',
+  jobTitle: 'Financial Advisor',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'LPL Financial',
+    url: 'https://www.lpl.com/',
+  },
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Behavioral Financial Advisor',
+      credentialCategory: 'certification',
+      recognizedBy: { '@type': 'Organization', name: 'Think2Perform' },
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Certified Plan Fiduciary Advisor',
+      credentialCategory: 'certification',
+      recognizedBy: { '@type': 'Organization', name: 'National Association of Plan Advisors' },
+    },
+  ],
+  identifier: {
+    '@type': 'PropertyValue',
+    propertyID: 'FINRA CRD',
+    value: '6445648',
+  },
+  telephone: '+1-305-928-2928',
+  email: 'Alissa.Whittle@LPL.com',
+  workLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '92200 Overseas Highway',
+      addressLocality: 'Tavernier',
+      addressRegion: 'FL',
+      postalCode: '33070',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 25.0078,
+      longitude: -80.5147,
+    },
+  },
+  url: SITE_URL + '/',
+  sameAs: ['https://brokercheck.finra.org/individual/summary/6445648'],
+};
+
+const financialServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  name: 'Alissa Whittle',
+  description: 'Independent fiduciary financial planning under LPL Financial, based in Tavernier, Florida Keys.',
+  image: SITE_URL + '/og-image.jpg',
+  url: SITE_URL + '/',
+  telephone: '+1-305-928-2928',
+  email: 'Alissa.Whittle@LPL.com',
+  priceRange: '$$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '92200 Overseas Highway',
+    addressLocality: 'Tavernier',
+    addressRegion: 'FL',
+    postalCode: '33070',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 25.0078,
+    longitude: -80.5147,
+  },
+  areaServed: [
+    'California', 'Colorado', 'Florida', 'Georgia', 'Minnesota',
+    'Missouri', 'Nevada', 'New York', 'Oklahoma', 'Texas', 'Virginia',
+  ].map((name) => ({ '@type': 'State', name })),
+  knowsAbout: [
+    'Investment management',
+    'Retirement income planning',
+    'Tax coordination',
+    'Insurance planning',
+    'Estate planning support',
+    'Education funding',
+  ],
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'LPL Financial',
+    url: 'https://www.lpl.com/',
+  },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Alissa Whittle',
+  url: SITE_URL + '/',
+  inLanguage: 'en-US',
+};
 ---
 
-<BaseLayout>
+<BaseLayout schema={[personSchema, financialServiceSchema, websiteSchema]}>
   <Hero />
   <QualifyingSection />
   <ProcessSection />
