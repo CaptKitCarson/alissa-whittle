@@ -28,3 +28,7 @@ pnpm-debug.log*
 # copies in public/ or src/assets/. Leading slash anchors this to the
 # repo root so src/assets/ stays tracked.
 /assets/
+
+# Claude Code user-local permissions/settings — auto-created per machine.
+# Skills and shared settings (.claude/skills/, .claude/settings.json) stay tracked.
+.claude/settings.local.json
