@@ -4,10 +4,10 @@ import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 
-// TODO at launch: confirm production domain with Alissa and update `site` below.
+// Production domain confirmed by Alissa 2026-05-14: www.alissawhittle.com.
 // Used for canonical URLs, OG absolute URLs, and sitemap-index.xml generation.
 export default defineConfig({
-  site: 'https://alissawhittle.com',
+  site: 'https://www.alissawhittle.com',
   trailingSlash: 'always',
   integrations: [sitemap()],
   vite: {

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LicensingMap from '../components/LicensingMap.astro';
 import IntroBand from '../components/IntroBand.astro';
 import QualifyingSection from '../components/QualifyingSection.astro';
 import ProcessSection from '../components/ProcessSection.astro';
@@ -8,7 +7,7 @@ import AboutTeaser from '../components/AboutTeaser.astro';
 import MonogramMark from '../components/MonogramMark.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 
-const SITE_URL = 'https://alissawhittle.com';
+const SITE_URL = 'https://www.alissawhittle.com';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -121,8 +120,23 @@ const websiteSchema = {
       <h1 id="page-thesis-h" class="page-thesis">A more <i>deliberate</i> relationship with your money.</h1>
     </div>
   </section>
-  <LicensingMap />
   <IntroBand />
+
+  <section class="band fade fiduciary-band" aria-labelledby="fiduciary-h">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="eyebrow">What "fiduciary" means</span>
+        <h2 id="fiduciary-h">A higher standard of care.</h2>
+      </header>
+      <div class="fiduciary-prose">
+        <p>As a fiduciary advisor, Alissa is held to a higher standard of care and is committed to putting her clients' best interests first by providing guidance designed to align with their goals and needs.</p>
+        <p>Affluent individuals and families often seek more than investment management alone. They value personalized guidance, proactive communication, and a long-term relationship built on trust. As an independent financial advisor affiliated with LPL Financial, Alissa provides customized planning and investment strategies tailored to each client's unique goals, values, family priorities, and legacy objectives.</p>
+        <p>She works closely with clients to help navigate retirement income planning, investment management, tax-efficient strategies, charitable giving, estate considerations, and multigenerational planning through an independent, relationship-driven approach designed to provide objective guidance and personalized service.</p>
+        <p class="fiduciary-coda">Most of her clients are retirees, pre-retirees, business owners, professionals, and families seeking long-term planning relationships.</p>
+      </div>
+    </div>
+  </section>
+
   <QualifyingSection />
   <ProcessSection />
   <AboutTeaser />
