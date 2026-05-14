@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MonogramMark from '../components/MonogramMark.astro';
-import Hero from '../components/Hero.astro';
+import LicensingMap from '../components/LicensingMap.astro';
+import IntroBand from '../components/IntroBand.astro';
 import QualifyingSection from '../components/QualifyingSection.astro';
 import ProcessSection from '../components/ProcessSection.astro';
 import AboutTeaser from '../components/AboutTeaser.astro';
-import LicensingMap from '../components/LicensingMap.astro';
+import MonogramMark from '../components/MonogramMark.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 
 const SITE_URL = 'https://alissawhittle.com';
@@ -85,8 +85,10 @@ const financialServiceSchema = {
     longitude: -80.5147,
   },
   areaServed: [
-    'California', 'Colorado', 'Florida', 'Georgia', 'Minnesota',
-    'Missouri', 'Nevada', 'New York', 'Oklahoma', 'Texas', 'Virginia',
+    'Alabama', 'California', 'Colorado', 'Florida', 'Georgia',
+    'Kansas', 'Michigan', 'Minnesota', 'Missouri', 'Montana',
+    'Nevada', 'New Mexico', 'New York', 'North Carolina', 'Ohio',
+    'Oklahoma', 'South Dakota', 'Texas', 'Virginia',
   ].map((name) => ({ '@type': 'State', name })),
   knowsAbout: [
     'Investment management',
@@ -113,11 +115,11 @@ const websiteSchema = {
 ---
 
 <BaseLayout schema={[personSchema, financialServiceSchema, websiteSchema]}>
-  <MonogramMark />
-  <Hero />
+  <LicensingMap />
+  <IntroBand />
   <QualifyingSection />
   <ProcessSection />
   <AboutTeaser />
-  <LicensingMap />
+  <MonogramMark />
   <FinalCTA sectionId="schedule" />
 </BaseLayout>

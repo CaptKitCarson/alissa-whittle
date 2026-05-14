@@ -6,6 +6,8 @@ const links = [
   { href: '/events', label: 'Events' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const romans = ['I', 'II', 'III', 'IV', 'V'];
 ---
 
 <nav class="nav" id="nav">
@@ -13,7 +15,92 @@ const links = [
     <a href="/" class="wordmark" aria-label="Alissa Whittle home">Alissa<span class="a"> Whittle</span></a>
     <div class="nav-links">
       {links.map((link) => <a href={link.href} class="l">{link.label}</a>)}
+      <button
+        id="nav-toggle"
+        type="button"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-mast"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle-label">Menu</span>
+        <svg
+          class="nav-toggle-icon"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
       <a href="/#schedule" class="btn nav-cta">Schedule</a>
     </div>
   </div>
+  <div id="nav-mast" class="nav-mast" data-open="false">
+    <div class="wrap nav-mast-inner">
+      <ul class="nav-mast-list" role="list">
+        {
+          links.map((link, i) => (
+            <li class="nav-mast-row">
+              <a href={link.href} class="nav-mast-link" tabindex="-1">
+                <span class="nav-mast-num">{romans[i]}</span>
+                <span class="nav-mast-title">{link.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const mast = document.getElementById('nav-mast');
+  const navEl = document.getElementById('nav');
+  let isOpen = false;
+
+  function setOpen(open: boolean) {
+    if (!toggle || !mast || !navEl) return;
+    isOpen = open;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mast.dataset.open = open ? 'true' : 'false';
+    navEl.classList.toggle('is-open', open);
+    document.documentElement.classList.toggle('nav-open', open);
+    mast.querySelectorAll('.nav-mast-link').forEach((a) => {
+      a.setAttribute('tabindex', open ? '0' : '-1');
+    });
+    if (open) {
+      (mast.querySelector('.nav-mast-link') as HTMLAnchorElement | null)?.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+
+  toggle?.addEventListener('click', () => setOpen(!isOpen));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) setOpen(false);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!isOpen) return;
+    const target = e.target as Node;
+    if (!navEl?.contains(target)) setOpen(false);
+  });
+
+  mast?.querySelectorAll('.nav-mast-link').forEach((a) => {
+    a.addEventListener('click', () => setOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 880 && isOpen) setOpen(false);
+  });
+</script>

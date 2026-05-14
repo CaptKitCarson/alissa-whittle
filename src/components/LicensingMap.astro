@@ -1,22 +1,21 @@
-<section class="band licensing fade" id="licensing" aria-labelledby="lic-h">
+<section class="band licensing" id="licensing" aria-labelledby="map-h">
   <div class="wrap">
-    <div class="license-stamp" aria-hidden="true">
-      <svg class="license-cross" viewBox="0 0 24 24">
-        <line x1="12" y1="0" x2="12" y2="24" stroke="currentColor" stroke-width="1" />
-        <line x1="0" y1="12" x2="24" y2="12" stroke="currentColor" stroke-width="1" />
-        <circle cx="12" cy="12" r="2.4" fill="currentColor" />
-      </svg>
-      <div class="license-coord">
-        <span class="license-coord-point">25.0078°N · 80.5147°W</span>
-        <span class="license-coord-place">Tavernier, FL · MM 92 · Overseas Hwy</span>
+    <header class="map-head">
+      <div class="map-head-copy">
+        <span class="eyebrow">Independent fiduciary · Tavernier, FL · Nineteen states</span>
+        <h2 id="map-h" class="map-headline">Where she <i>practices.</i></h2>
       </div>
-    </div>
-    <header class="license-head">
-      <div>
-        <span class="eyebrow">IV &nbsp;—&nbsp; Licensed in</span>
-        <h2 id="lic-h">Eleven securities. Twelve insurance. <i>One advisor.</i></h2>
+      <div class="license-stamp" aria-hidden="true">
+        <svg class="license-cross" viewBox="0 0 24 24">
+          <line x1="12" y1="0" x2="12" y2="24" stroke="currentColor" stroke-width="1" />
+          <line x1="0" y1="12" x2="24" y2="12" stroke="currentColor" stroke-width="1" />
+          <circle cx="12" cy="12" r="2.4" fill="currentColor" />
+        </svg>
+        <div class="license-coord">
+          <span class="license-coord-point">25.0078°N · 80.5147°W</span>
+          <span class="license-coord-place">Tavernier, FL · MM 92 · Overseas Hwy</span>
+        </div>
       </div>
-      <p>Securities registrations and insurance licenses are state-specific. Hover or tap a state to see which apply.</p>
     </header>
 
     <div class="legend" aria-hidden="false">
@@ -33,13 +32,27 @@
         </div>
       </div>
       <aside class="state-info" id="state-info" aria-live="polite">
-        <span class="si-eyebrow">State detail</span>
-        <h3 class="si-name" id="si-name">Florida <i>— home.</i></h3>
+        <span class="si-eyebrow">Selected state</span>
+        <h3 class="si-name" id="si-name">Florida, <i>home.</i></h3>
         <div class="si-status">
           <div class="row"><span class="l">Securities</span><span class="v yes" id="si-sec">Registered</span></div>
           <div class="row"><span class="l">Insurance</span><span class="v yes" id="si-ins">Licensed</span></div>
         </div>
         <p class="si-note" id="si-note">Alissa is based in Tavernier and meets with Keys clients in-person.</p>
+        <div class="si-actions">
+          <a
+            id="si-cta"
+            href="https://oncehub.com/AlissaWhittle?state=FL"
+            class="btn btn-primary si-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Schedule a conversation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" /><path d="M13 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
         <div class="si-summary">
           <span><b>19</b> states served</span>
           <span><b>4</b> have both licenses</span>
@@ -104,6 +117,12 @@
   }
 
   const map = document.getElementById('map');
+  const siName = document.getElementById('si-name');
+  const siSec = document.getElementById('si-sec');
+  const siIns = document.getElementById('si-ins');
+  const siNote = document.getElementById('si-note');
+  const siCta = document.getElementById('si-cta') as HTMLAnchorElement | null;
+
   if (map) {
     const frag = document.createDocumentFragment();
 
@@ -113,37 +132,32 @@
       t.className = 'tile';
       t.style.gridColumn = String(col);
       t.style.gridRow = String(row);
+      t.style.setProperty('--row-delay', `${(row - 1) * 0.075}s`);
       t.dataset.code = code;
       t.textContent = code;
       t.setAttribute('aria-label', NAMES[code] || code);
 
       const active = statusFor(code);
-      if (active) {
-        t.dataset.active = active;
-        t.setAttribute('tabindex', '0');
-      } else {
-        t.setAttribute('aria-disabled', 'true');
-        t.setAttribute('tabindex', '-1');
-      }
+      if (active) t.dataset.active = active;
+      t.setAttribute('tabindex', '0');
       frag.appendChild(t);
     });
     map.appendChild(frag);
-
-    const siName = document.getElementById('si-name');
-    const siSec = document.getElementById('si-sec');
-    const siIns = document.getElementById('si-ins');
-    const siNote = document.getElementById('si-note');
+    map.dataset.drawing = 'true';
 
     function setActive(code: string) {
       if (!code) return;
       const active = statusFor(code);
-      if (!active) return;
+
       document.querySelectorAll('.tile.is-current').forEach((el) => el.classList.remove('is-current'));
       const tile = map!.querySelector(`[data-code="${code}"]`);
       if (tile) tile.classList.add('is-current');
 
       const isHome = code === 'FL';
-      if (siName) siName.innerHTML = NAMES[code] + (isHome ? ' <i>— home.</i>' : '');
+      if (siName) {
+        siName.innerHTML = isHome ? 'Florida, <i>home.</i>' : (NAMES[code] || code);
+      }
+
       const sec = SECURITIES.has(code);
       const ins = INSURANCE.has(code);
       if (siSec) {
@@ -154,19 +168,27 @@
         siIns.textContent = ins ? 'Licensed' : 'Not licensed';
         siIns.className = 'v ' + (ins ? 'yes' : 'no');
       }
-      if (siNote) siNote.textContent = NOTES[code] || '';
+      if (siNote) {
+        if (active) {
+          siNote.textContent = NOTES[code] || '';
+        } else {
+          siNote.textContent = `Not yet licensed in ${NAMES[code] || code}. Most relationships start with a conversation. Reach out and we'll see what makes sense.`;
+        }
+      }
+
+      if (siCta) siCta.href = `https://oncehub.com/AlissaWhittle?state=${code}`;
     }
 
     map.addEventListener('mouseover', (e) => {
-      const t = (e.target as HTMLElement).closest('.tile[data-active]') as HTMLElement | null;
+      const t = (e.target as HTMLElement).closest('.tile') as HTMLElement | null;
       if (t && t.dataset.code) setActive(t.dataset.code);
     });
     map.addEventListener('focusin', (e) => {
-      const t = (e.target as HTMLElement).closest('.tile[data-active]') as HTMLElement | null;
+      const t = (e.target as HTMLElement).closest('.tile') as HTMLElement | null;
       if (t && t.dataset.code) setActive(t.dataset.code);
     });
     map.addEventListener('click', (e) => {
-      const t = (e.target as HTMLElement).closest('.tile[data-active]') as HTMLElement | null;
+      const t = (e.target as HTMLElement).closest('.tile') as HTMLElement | null;
       if (t && t.dataset.code) setActive(t.dataset.code);
     });
 
