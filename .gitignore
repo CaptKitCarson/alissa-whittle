@@ -32,3 +32,4 @@ pnpm-debug.log*
 # Claude Code user-local permissions/settings — auto-created per machine.
 # Skills and shared settings (.claude/skills/, .claude/settings.json) stay tracked.
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
