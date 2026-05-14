@@ -104,7 +104,12 @@ h1, h2, h3, h4 {
   color: var(--ink);
   text-wrap: balance;
 }
-h1 i, h2 i, h3 i, .display i { font-style: italic; font-weight: 350; }
+h1 i, h2 i, h3 i, .display i {
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'wght' 360;
+  color: var(--teal-deep);
+}
 
 .display {
   font-family: var(--f-display);
@@ -481,6 +486,7 @@ section.band {
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
   max-width: 48rem;
 }
+.section-head h1,
 .section-head h2 {
   font-size: var(--s-h2);
   font-variation-settings: 'opsz' 144, 'SOFT' 40, 'wght' 400;
@@ -490,6 +496,86 @@ section.band {
   font-size: 1.0625rem;
   max-width: 42ch;
   line-height: 1.6;
+}
+
+/* ---------- HERO (page headers: about, contact, services, resources) ---------- */
+header.hero {
+  padding-block: clamp(4rem, 7vw, 6.5rem) clamp(3.5rem, 6vw, 5.5rem);
+  position: relative;
+}
+header.hero.hero--compact {
+  padding-block: clamp(4rem, 7vw, 6.5rem) clamp(2rem, 4vw, 3.25rem);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  column-gap: clamp(2rem, 4.5vw, 4rem);
+  align-items: end;
+}
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  max-width: 44rem;
+}
+.hero-copy h1 {
+  font-size: var(--s-hero);
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'wght' 400;
+  max-width: 14ch;
+}
+.hero-copy h1 i {
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'wght' 360;
+}
+.hero-sub {
+  color: var(--ink-soft);
+  font-size: clamp(1.0625rem, 0.4vw + 1rem, 1.25rem);
+  line-height: 1.55;
+  max-width: 42ch;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: var(--s-xs);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.25rem;
+}
+.hero-meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--rule);
+}
+.hero-portrait {
+  max-width: 24rem;
+  margin-inline-start: auto;
+}
+@media (max-width: 880px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    row-gap: clamp(2rem, 4vw, 2.75rem);
+    align-items: start;
+  }
+  .hero-portrait {
+    max-width: 20rem;
+    margin-inline-start: 0;
+  }
+}
+
+/* small muted helper used in contact list items */
+.t-muted {
+  display: block;
+  color: var(--muted);
+  font-size: var(--s-small);
+  font-family: var(--f-body);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.5;
+  margin-top: 0.55rem;
 }
 
 /* ---------- IS THIS FOR YOU? ---------- */
@@ -663,6 +749,11 @@ section.band {
   align-items: center;
 }
 .about-copy > * + * { margin-top: 1.5rem; }
+.about-copy h2 {
+  font-size: var(--s-h2);
+  font-variation-settings: 'opsz' 144, 'SOFT' 40, 'wght' 400;
+  max-width: 16ch;
+}
 .about-copy p.bio {
   font-size: clamp(1.0625rem, 0.3vw + 1rem, 1.1875rem);
   line-height: 1.65;
@@ -1199,6 +1290,11 @@ footer.colophon {
   width: 8px; height: 8px;
   background: var(--ink);
   display: inline-block;
+}
+.lpl-mark strong {
+  margin-left: 0.35rem;
+  color: var(--ink);
+  font-weight: 500;
 }
 
 .socials {

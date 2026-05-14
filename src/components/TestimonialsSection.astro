@@ -82,7 +82,7 @@ const testimonials: Testimonial[] = [
 <section class="band fade" id="testimonials" aria-labelledby="testimonials-h">
   <div class="wrap">
     <header class="section-head">
-      <span class="eyebrow">IV &nbsp;—&nbsp; In their words</span>
+      <span class="eyebrow">IV &nbsp;·&nbsp; In their words</span>
       <h2 id="testimonials-h">What it sounds like on the other end.</h2>
       <p class="lead">A few words from people Alissa has worked with. Names and photos used with written permission.</p>
     </header>
@@ -135,11 +135,21 @@ const testimonials: Testimonial[] = [
     font-style: italic;
   }
   .testimonial-disclaimer {
-    margin-top: clamp(2rem, 4vw, 3rem);
-    padding: 1rem 1.25rem;
-    border-left: 2px solid currentColor;
-    opacity: 0.65;
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
     font-size: var(--s-small);
+    line-height: 1.55;
+    color: var(--muted);
     max-width: 60ch;
+    font-style: italic;
+    font-family: var(--f-display);
+    font-weight: 350;
+  }
+  .testimonial-disclaimer strong {
+    font-family: var(--f-body);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--ink-soft);
   }
 </style>
