@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-14T11:59:07Z",
+  "title": "Design System: Alissa Whittle",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Sun-bleached Cream",
+        "canonical": "oklch(96.5% 0.011 85)",
+        "tonalRamp": [
+          "oklch(20% 0.008 85)",
+          "oklch(35% 0.009 85)",
+          "oklch(50% 0.011 85)",
+          "oklch(65% 0.011 85)",
+          "oklch(80% 0.011 85)",
+          "oklch(90% 0.011 85)",
+          "oklch(96.5% 0.011 85)",
+          "oklch(99% 0.008 85)"
+        ]
+      },
+      "bg-paper": {
+        "role": "neutral",
+        "displayName": "Bone Paper",
+        "canonical": "oklch(98% 0.007 85)"
+      },
+      "bg-deep": {
+        "role": "neutral",
+        "displayName": "Linen",
+        "canonical": "oklch(92.5% 0.014 85)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Squid Ink",
+        "canonical": "oklch(22% 0.018 200)",
+        "tonalRamp": [
+          "oklch(15% 0.014 200)",
+          "oklch(22% 0.018 200)",
+          "oklch(30% 0.018 200)",
+          "oklch(40% 0.016 200)",
+          "oklch(50% 0.014 200)",
+          "oklch(65% 0.012 200)",
+          "oklch(80% 0.01 200)",
+          "oklch(95% 0.005 200)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Wet Slate",
+        "canonical": "oklch(38% 0.014 200)"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Driftwood Gray",
+        "canonical": "oklch(55% 0.012 200)"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(86% 0.012 90)"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Dock Rule",
+        "canonical": "oklch(74% 0.014 90)"
+      },
+      "teal": {
+        "role": "primary",
+        "displayName": "Mangrove Teal",
+        "canonical": "oklch(43% 0.065 195)",
+        "tonalRamp": [
+          "oklch(15% 0.04 195)",
+          "oklch(25% 0.05 195)",
+          "oklch(35% 0.06 195)",
+          "oklch(45% 0.065 195)",
+          "oklch(55% 0.06 195)",
+          "oklch(65% 0.055 195)",
+          "oklch(78% 0.045 195)",
+          "oklch(92% 0.03 195)"
+        ]
+      },
+      "teal-soft": {
+        "role": "primary",
+        "displayName": "Tidewater",
+        "canonical": "oklch(86% 0.035 195)"
+      },
+      "teal-deep": {
+        "role": "primary",
+        "displayName": "Inkstone Teal",
+        "canonical": "oklch(28% 0.05 200)"
+      },
+      "teal-ink": {
+        "role": "primary",
+        "displayName": "Salt Paper",
+        "canonical": "oklch(98% 0.01 195)"
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Late-Afternoon Gold",
+        "canonical": "oklch(63% 0.09 75)",
+        "tonalRamp": [
+          "oklch(20% 0.06 75)",
+          "oklch(30% 0.07 75)",
+          "oklch(40% 0.08 75)",
+          "oklch(50% 0.085 75)",
+          "oklch(60% 0.09 75)",
+          "oklch(72% 0.08 75)",
+          "oklch(84% 0.06 75)",
+          "oklch(94% 0.035 75)"
+        ]
+      },
+      "gold-soft": {
+        "role": "secondary",
+        "displayName": "Conch Soft",
+        "canonical": "oklch(89% 0.045 80)"
+      },
+      "gold-deep": {
+        "role": "secondary",
+        "displayName": "Brass Buoy",
+        "canonical": "oklch(48% 0.08 70)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only. Fraunces opsz 144 SOFT 30, capped at 14ch. Italic <i> shifts SOFT to 100, weight to 360, color to Inkstone Teal."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s. Same italic-emphasis convention as Display, slightly softer (SOFT 40)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Process step titles, service titles, state-info names. Fraunces SOFT 50."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph copy in Inter. Capped at 38–54ch. Feature settings 'ss01', 'kern' enabled globally."
+      },
+      "label": {
+        "displayName": "Eyebrow Label",
+        "purpose": "Uppercase Inter 0.78rem letter-spacing 0.18em, preceded by a 1.6em 1px Inkstone Teal rule. Section identity marker."
+      }
+    },
+    "fontExtensions": {
+      "mono": {
+        "displayName": "Coordinate Mono",
+        "fontFamily": "ui-monospace, 'JetBrains Mono', 'IBM Plex Mono', Menlo, monospace",
+        "fontSize": "0.68rem–0.72rem",
+        "letterSpacing": "0.14em–0.18em",
+        "purpose": "Record-keeping only: coordinates, CRD numbers, license metadata, tile counts, process-step meta. Always uppercase. Never used for paragraphs."
+      },
+      "pullquote": {
+        "displayName": "Pullquote",
+        "fontFamily": "Fraunces italic",
+        "fontVariation": "'opsz' 144, 'SOFT' 100, 'wght' 360",
+        "fontSize": "clamp(1.4rem, 1.8vw + 0.6rem, 2.25rem)",
+        "lineHeight": 1.18,
+        "purpose": "Qualifying-section questions and fc-aside lines. Italic-by-default — these are spoken quotations."
+      }
+    },
+    "shadows": [
+      {
+        "name": "button-rest",
+        "value": "0 1px 0 oklch(20% 0.05 200 / 0.1), 0 8px 22px -16px oklch(20% 0.05 200 / 0.55)",
+        "purpose": "Two-layer ambient shadow on primary buttons at rest. Seats the button on the paper without lifting it."
+      },
+      {
+        "name": "button-hover",
+        "value": "0 1px 0 oklch(20% 0.05 200 / 0.15), 0 14px 28px -16px oklch(20% 0.05 200 / 0.65)",
+        "purpose": "Same vocabulary, double the wash. Paired with translateY(-1px) on :hover."
+      },
+      {
+        "name": "tile-lift",
+        "value": "0 6px 16px -10px oklch(20% 0.04 200 / 0.55)",
+        "purpose": "Map tile hover/focus lift."
+      },
+      {
+        "name": "tile-current-teal",
+        "value": "0 0 0 2px oklch(98% 0.007 85), 0 0 0 3px oklch(28% 0.05 200)",
+        "purpose": "Securities/both-licensed current-tile marker. Paper gap + Inkstone Teal ring."
+      },
+      {
+        "name": "tile-current-gold",
+        "value": "0 0 0 2px oklch(98% 0.007 85), 0 0 0 3px oklch(48% 0.08 70)",
+        "purpose": "Insurance-only current-tile marker. Paper gap + Brass Buoy Gold ring."
+      },
+      {
+        "name": "cta-wash",
+        "value": "0 14px 28px -16px oklch(0% 0 0 / 0.55)",
+        "purpose": "Cream button-on-teal hover wash on the drenched final CTA ground."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-default",
+        "value": "cubic-bezier(0.2, 0.6, 0.2, 1)",
+        "purpose": "Default easing for state transitions, button hover, link underline, tile lift, scroll-fade entrances."
+      },
+      {
+        "name": "ease-monogram",
+        "value": "cubic-bezier(0.65, 0.05, 0.36, 1)",
+        "purpose": "Stroke-draw easing for the home-page monogram mark. Sharper start, generous out."
+      },
+      {
+        "name": "duration-fast",
+        "value": "0.2s",
+        "purpose": "Link/tile hover transitions, color shifts."
+      },
+      {
+        "name": "duration-medium",
+        "value": "0.25s",
+        "purpose": "Button hover (transform + shadow + background)."
+      },
+      {
+        "name": "duration-fade",
+        "value": "0.8s–0.9s",
+        "purpose": "Scroll-fade entrance for `.fade` and `.hero-portrait` elements."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "540px" },
+      { "name": "md", "value": "720px" },
+      { "name": "lg", "value": "820px" },
+      { "name": "xl", "value": "880px" }
+    ],
+    "background": {
+      "page": "radial-gradient(ellipse 1100px 700px at 18% -10%, oklch(94% 0.025 90) 0%, transparent 60%), radial-gradient(ellipse 900px 600px at 100% 105%, oklch(94% 0.022 85) 0%, transparent 55%), oklch(96.5% 0.011 85)",
+      "qualifying-band": "linear-gradient(180deg, transparent 0%, oklch(95% 0.012 85) 30%, oklch(95% 0.012 85) 70%, transparent 100%)",
+      "final-cta-wash": "radial-gradient(ellipse 700px 400px at 80% 110%, oklch(50% 0.06 200) 0%, transparent 60%), radial-gradient(ellipse 600px 400px at 10% -10%, oklch(36% 0.06 195) 0%, transparent 55%)",
+      "signature-mark": "radial-gradient(ellipse 720px 260px at 50% 55%, oklch(95.5% 0.014 90) 0%, transparent 72%)"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Mangrove Teal pill with an inline arrow icon. The brand's only voice-bearing CTA.",
+      "html": "<button class=\"ds-btn-primary\">Schedule a conversation<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.25rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.005em; background: oklch(43% 0.065 195); color: oklch(98% 0.01 195); border: 1px solid transparent; border-radius: 999px; cursor: pointer; white-space: nowrap; box-shadow: 0 1px 0 oklch(20% 0.05 200 / 0.1), 0 8px 22px -16px oklch(20% 0.05 200 / 0.55); transition: transform 0.25s cubic-bezier(0.2, 0.6, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.6, 0.2, 1), background 0.25s cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-btn-primary:hover { background: oklch(28% 0.05 200); transform: translateY(-1px); box-shadow: 0 1px 0 oklch(20% 0.05 200 / 0.15), 0 14px 28px -16px oklch(20% 0.05 200 / 0.65); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(28% 0.05 200); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Bordered transparent pill. Yields to the primary CTA in the same row.",
+      "html": "<button class=\"ds-btn-ghost\">Read about Alissa</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.25rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.005em; color: oklch(22% 0.018 200); background: transparent; border: 1px solid oklch(74% 0.014 90); border-radius: 999px; cursor: pointer; white-space: nowrap; transition: background 0.25s cubic-bezier(0.2, 0.6, 0.2, 1), border-color 0.25s cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-btn-ghost:hover { background: oklch(98% 0.007 85); border-color: oklch(38% 0.014 200); } .ds-btn-ghost:focus-visible { outline: 2px solid oklch(28% 0.05 200); outline-offset: 3px; }"
+    },
+    {
+      "name": "On-Teal Button",
+      "kind": "button",
+      "refersTo": "button-on-teal",
+      "description": "Cream pill on the drenched Inkstone Teal final-CTA ground. Inverted brand presence.",
+      "html": "<div class=\"ds-on-teal-stage\"><button class=\"ds-btn-on-teal\">Schedule a conversation<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 5l7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-on-teal-stage { background: oklch(28% 0.05 200); padding: 2.5rem; border-radius: 4px; } .ds-btn-on-teal { display: inline-flex; align-items: center; gap: 0.55rem; padding: 1rem 1.5rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.005em; background: oklch(98% 0.007 85); color: oklch(28% 0.05 200); border: 1px solid transparent; border-radius: 999px; cursor: pointer; white-space: nowrap; transition: transform 0.25s cubic-bezier(0.2, 0.6, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.6, 0.2, 1), background 0.25s cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-btn-on-teal:hover { background: oklch(96.5% 0.011 85); transform: translateY(-1px); box-shadow: 0 14px 28px -16px oklch(0% 0 0 / 0.55); } .ds-btn-on-teal:focus-visible { outline: 2px solid oklch(98% 0.01 195); outline-offset: 4px; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "description": "Signature ornament: uppercase Inter 0.78rem in Inkstone Teal with a 1.6em leading rule. Marks section identity.",
+      "html": "<span class=\"ds-eyebrow\">Independent fiduciary&nbsp;·&nbsp;Tavernier, Florida</span>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; gap: 0.6em; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(28% 0.05 200); } .ds-eyebrow::before { content: \"\"; width: 1.6em; height: 1px; background: oklch(28% 0.05 200); display: inline-block; }"
+    },
+    {
+      "name": "Transient Link",
+      "kind": "custom",
+      "description": "Inline secondary link with a hairline baseline and a trailing arrow that translates on hover.",
+      "html": "<a href=\"#\" class=\"ds-tlink\">Read about Alissa <span class=\"arrow\" aria-hidden=\"true\">&rarr;</span></a>",
+      "css": ".ds-tlink { display: inline-flex; align-items: baseline; gap: 0.45rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 450; color: oklch(22% 0.018 200); text-decoration: none; border-bottom: 1px solid oklch(74% 0.014 90); padding-bottom: 2px; transition: border-color 0.2s cubic-bezier(0.2, 0.6, 0.2, 1), color 0.2s cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-tlink .arrow { transition: transform 0.25s cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-tlink:hover { color: oklch(28% 0.05 200); border-bottom-color: oklch(28% 0.05 200); } .ds-tlink:hover .arrow { transform: translateX(3px); }"
+    },
+    {
+      "name": "Portrait Card",
+      "kind": "card",
+      "refersTo": "card-portrait",
+      "description": "Signature 4:5 framed portrait with a hairline border and a coordinate-stamped caption.",
+      "html": "<figure class=\"ds-portrait\"><div class=\"ds-portrait-photo\" aria-label=\"Portrait placeholder\"></div><figcaption class=\"ds-portrait-caption\"><b>Alissa Whittle</b><br>MountainTop Financial &rarr; LPL Financial · Tavernier<span class=\"ds-caption-coord\">25.0078°N · 80.5147°W · MM 92</span></figcaption></figure>",
+      "css": ".ds-portrait { display: flex; flex-direction: column; gap: 0.85rem; max-width: 22rem; margin: 0; } .ds-portrait-photo { width: 100%; aspect-ratio: 4 / 5; background: linear-gradient(160deg, oklch(78% 0.025 195) 0%, oklch(55% 0.03 200) 100%); border: 1px solid oklch(86% 0.012 90); border-radius: 2px; } .ds-portrait-caption { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.8125rem; color: oklch(55% 0.012 200); letter-spacing: -0.005em; line-height: 1.5; } .ds-portrait-caption b { color: oklch(38% 0.014 200); font-weight: 500; } .ds-caption-coord { display: block; margin-top: 0.45rem; padding-top: 0.45rem; border-top: 1px solid oklch(86% 0.012 90); font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(28% 0.05 200); }"
+    },
+    {
+      "name": "License Tile",
+      "kind": "chip",
+      "refersTo": "tile-map",
+      "description": "Signature 11-column licensing-map cell. Default hairline-bordered, fills with Mangrove (securities), Late-Afternoon Gold (insurance), or a split-gradient (both).",
+      "html": "<div class=\"ds-tile-row\"><button class=\"ds-tile ds-tile--sec\" type=\"button\">FL</button><button class=\"ds-tile ds-tile--ins\" type=\"button\">NV</button><button class=\"ds-tile ds-tile--both\" type=\"button\">TX</button><span class=\"ds-tile ds-tile--off\">WA</span></div>",
+      "css": ".ds-tile-row { display: flex; gap: 6px; flex-wrap: wrap; } .ds-tile { width: 48px; height: 48px; border-radius: 3px; background: transparent; border: 1px solid oklch(74% 0.014 90); color: oklch(55% 0.012 200); font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; justify-content: center; user-select: none; cursor: default; transition: transform 0.2s cubic-bezier(0.2, 0.6, 0.2, 1), box-shadow 0.2s cubic-bezier(0.2, 0.6, 0.2, 1), border-color 0.2s cubic-bezier(0.2, 0.6, 0.2, 1), color 0.2s cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-tile--sec { background: oklch(43% 0.065 195); color: oklch(98% 0.01 195); border-color: oklch(28% 0.05 200); cursor: pointer; } .ds-tile--ins { background: oklch(63% 0.09 75); color: oklch(20% 0.04 70); border-color: oklch(48% 0.08 70); cursor: pointer; } .ds-tile--both { background: linear-gradient(135deg, oklch(43% 0.065 195) 0%, oklch(43% 0.065 195) 49%, oklch(63% 0.09 75) 51%, oklch(63% 0.09 75) 100%); color: oklch(99% 0.01 90); border-color: oklch(28% 0.05 200); cursor: pointer; text-shadow: 0 1px 0 oklch(20% 0.04 90 / 0.35); } .ds-tile--sec:hover, .ds-tile--ins:hover, .ds-tile--both:hover, .ds-tile--sec:focus-visible, .ds-tile--ins:focus-visible, .ds-tile--both:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px -10px oklch(20% 0.04 200 / 0.55); outline: none; }"
+    },
+    {
+      "name": "State Info Card",
+      "kind": "card",
+      "refersTo": "card-state-info",
+      "description": "Signature companion card to the licensing map. Mono eyebrow, italic-accent state name, mono status rows, italic Fraunces footnote.",
+      "html": "<aside class=\"ds-state-info\"><span class=\"ds-si-eyebrow\">Currently selected</span><h3 class=\"ds-si-name\">F<i>lorida</i></h3><div class=\"ds-si-status\"><div class=\"ds-si-row\"><span class=\"l\">Securities</span><span class=\"v yes\">Licensed</span></div><div class=\"ds-si-row\"><span class=\"l\">Insurance</span><span class=\"v yes\">Licensed</span></div></div><p class=\"ds-si-note\">Home state. In-person meetings available at MM 92.</p></aside>",
+      "css": ".ds-state-info { position: relative; padding: 1.5rem; border: 1px solid oklch(86% 0.012 90); border-radius: 4px; background: oklch(96.5% 0.011 85); display: flex; flex-direction: column; gap: 1rem; min-width: 18rem; max-width: 24rem; } .ds-si-eyebrow { font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(55% 0.012 200); } .ds-si-name { font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif; font-weight: 400; font-variation-settings: 'opsz' 144, 'SOFT' 40, 'wght' 400; font-size: 2.15rem; letter-spacing: -0.022em; line-height: 1.05; color: oklch(22% 0.018 200); margin: 0; } .ds-si-name i { color: oklch(28% 0.05 200); font-style: italic; font-variation-settings: 'opsz' 144, 'SOFT' 100, 'wght' 360; } .ds-si-status { display: flex; flex-direction: column; gap: 0.55rem; padding-top: 0.5rem; border-top: 1px solid oklch(74% 0.014 90); } .ds-si-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.9375rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; } .ds-si-row .l { color: oklch(38% 0.014 200); letter-spacing: -0.005em; } .ds-si-row .v { font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; } .ds-si-row .v.yes { color: oklch(28% 0.05 200); } .ds-si-row .v.no { color: oklch(55% 0.012 200); } .ds-si-note { margin: 0; font-size: 0.8125rem; color: oklch(55% 0.012 200); line-height: 1.55; font-style: italic; font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif; font-weight: 350; font-variation-settings: 'opsz' 144, 'SOFT' 100, 'wght' 360; } .ds-si-note::before { content: \"— \"; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Atelier on the Overseas Highway",
+    "overview": "A single skilled hand working at one desk in one town. The system is editorial, place-aware, and quietly cartographic — coordinates as ornament, italic Fraunces for emphasis, mono labels reserved for record-keeping (CRD numbers, latitude/longitude, license metadata). Warm cream paper is the default ground, mangrove teal is the only voice that carries, and gold makes one appearance in the licensing legend and nowhere else. The interface should feel like the desk it describes, not the firm behind it.\n\nWhat this system explicitly rejects: the big-bank corporate register — stock-photo handshakes, navy-and-gold corporate skylines, compliance theater that overwhelms the human. By extension it also rejects suburban-realtor gradients and circular headshots, robo-advisor neon dashboards, and tropical-Florida kitsch (palm trees, sunset gradients, beach-font headlines). The Keys are present in the work; they are not the decoration.\n\nThe voice is trusted, warm, sharp. Warmth is in the paper, the italics, and the line lengths; sharpness is in the small print — the credential stamp, the licensing tiles, the coordinate captions. Restraint is the discipline that lets the writing carry the room.",
+    "keyCharacteristics": [
+      "Warm cream paper ground with a low-contrast radial wash, never pure white.",
+      "Fraunces (variable, opsz 144) as the display voice; Inter for body; mono only for coordinates and record fields.",
+      "Italic-via-variation-axis is the only form of headline emphasis. No bold, no color highlight, no gradient.",
+      "One accent (mangrove teal) carries everything; a second accent (late-afternoon gold) is reserved for one purpose only.",
+      "1px hairlines separate sections and cards. Shadows appear as response to touch, not decoration.",
+      "Coordinate notation (25.0078°N · 80.5147°W · MM 92) is treated as ornament; mono labels mark the metadata."
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "Mangrove Teal and its deeper sibling Inkstone Teal are the only accent that carries the brand. Together they occupy no more than ~10% of any given screen. Their rarity is what makes them register as the practitioner's color, not a design flourish.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reserved Gold Rule",
+        "body": "Late-Afternoon Gold (and its deep/soft tints) is reserved exclusively for the licensing map: the insurance-only state tiles, the both-licensed split-gradient tiles, the legend's insurance chip, and the focus outline on those tiles. Gold never appears in headlines, body copy, CTAs, links, dividers, eyebrows, or icons. If a future surface needs a second accent, invent a third color — do not borrow from the gold scale.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted Neutrals Rule",
+        "body": "No pure white, no pure black. Cream neutrals tint toward hue 85–90 (warm); ink neutrals tint toward hue 200 (cool-teal). This keeps the page from looking like printer paper or a Material Light surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italic-Is-Emphasis Rule",
+        "body": "Emphasis inside a Fraunces headline is expressed only via the italic variation axis ('opsz' 144, 'SOFT' 100, 'wght' 360), usually paired with a color shift to Inkstone Teal. Never use bold, never use a gradient, never use a background highlight, never use ALL CAPS for emphasis. Two emphases per headline maximum.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono-Is-Coordinate Rule",
+        "body": "Monospace is reserved for record-keeping: latitude/longitude coordinates, CRD numbers, license metadata, tile counts, process-step ordinals, footer meta. Running prose in mono is forbidden. Mono labels carry letter-spacing of 0.14em–0.18em and run uppercase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Line-Length Discipline",
+        "body": "Body paragraphs are capped at 38–54ch. The bio drops at 46ch. The hero subhead caps at 38ch. Long lines belong in a different design.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift-on-Touch Rule",
+        "body": "Resting elevation is at-or-near zero. The portrait card, state-info card, footer, and map tiles sit on the page with hairlines only. Lift is reserved for :hover and :focus-visible — the page should look still until the cursor enters it.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Glow Rule",
+        "body": "Focus indicators are double-ring outlines (paper gap + ink ring) or solid 2px outlines offset by 3–4px from the element. Never use a colored blur as a focus state.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do ground every page in Sun-bleached Cream oklch(96.5% 0.011 85). Cards and the footer use Bone Paper oklch(98% 0.007 85) when they need to read as a separate surface.",
+      "Do use Mangrove Teal (oklch(43% 0.065 195)) as the only accent that carries voice; reserve gold for the licensing map only.",
+      "Do add emphasis inside Fraunces headlines via the italic variation axis ('opsz' 144, 'SOFT' 100, 'wght' 360) and a shift to Inkstone Teal — and only on one or two words per headline.",
+      "Do treat 1px Hairline (oklch(86% 0.012 90)) and Dock Rule (oklch(74% 0.014 90)) as the primary separators between sections, cards, and process steps.",
+      "Do use mono only for coordinates, CRD/license codes, tile counts, and process-step meta. Always uppercase, always letter-spaced 0.14em–0.18em.",
+      "Do cap body paragraphs at 38–54ch. Pull quotes and process prose live at the tighter end.",
+      "Do add the eyebrow-with-leading-rule pattern wherever a section needs an identity stamp.",
+      "Do use the pill (border-radius: 999px) as the through-line for every button variant.",
+      "Do respect prefers-reduced-motion: reduce — animations and the monogram draw must yield instantly."
+    ],
+    "donts": [
+      "Don't use pure black (#000) or pure white (#fff) anywhere. Neutrals tint warm (hue 85–90) for paper and cool (hue 200) for ink.",
+      "Don't introduce navy and gold as a paired palette — that is the exact big-bank visual language this site rejects. Gold appears alone, and only in the licensing legend.",
+      "Don't use stock photography of handshakes, beach sunsets, palm trees, or generic advisor-in-a-suit imagery. The only photograph in the system is Alissa's portrait, framed by a 1px Hairline border at 2px radius.",
+      "Don't use circular headshots, gradient buttons, or testimonial carousels with star ratings — that is the suburban-realtor register, equally rejected.",
+      "Don't use a hero-metric template (big number + small label + supporting stats with a gradient accent). The hero is a sentence, not a billboard.",
+      "Don't use gradient text or background-clip: text. Emphasis is italic + Inkstone Teal, nothing else.",
+      "Don't add border-left or border-right greater than 1px as a colored stripe on cards or callouts. Separation is hairline-and-paper, never stripe-and-fill.",
+      "Don't add decorative glassmorphism beyond the navigation's one functional blur. Backdrop-filter is a navigation utility, not a card style.",
+      "Don't stack cards inside cards. Nested cards are always wrong.",
+      "Don't use Fraunces for paragraph copy — it is the display voice. Use Inter for anything that must read rather than speak.",
+      "Don't use mono for running prose. Mono is the record-keeping hand, never the narrative hand.",
+      "Don't add em dashes (— or --) to copy. Use commas, colons, semicolons, periods, or parentheses.",
+      "Don't ship a component without :focus-visible styling. Outlines are 2px Inkstone Teal (or Brass Buoy Gold on insurance-state tiles) offset 3–4px from the element. No colored blur glows.",
+      "Don't convert deliberate into thoughtful, intentional, or any softer synonym. The site's voice is specific; protect the words."
+    ]
+  }
+}
