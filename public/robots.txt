@@ -1,7 +1,4 @@
-# PRE-LAUNCH: site is in MRR review. Block all crawlers.
-# TODO at launch: replace this file with allow-all directive + sitemap pointer:
-#   User-agent: *
-#   Allow: /
-#   Sitemap: https://alissawhittle.com/sitemap-index.xml
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.alissawhittle.com/sitemap-index.xml

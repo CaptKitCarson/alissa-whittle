@@ -30,11 +30,6 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
-    {/* PRE-LAUNCH: block indexation until MRR clears + Alissa gives MountainTop notice.
-        TODO at launch: delete this meta tag (or change to "index, follow") and update
-        public/robots.txt to allow-all + sitemap pointer. */}
-    <meta name="robots" content="noindex, nofollow" />
-
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
