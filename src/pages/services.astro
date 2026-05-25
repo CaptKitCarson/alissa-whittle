@@ -40,11 +40,46 @@ const services = [
     notes: '529 plans · UTMA / UGMA · Tax-favored education savings',
   },
 ];
+
+const SITE_URL = 'https://www.alissawhittle.com';
+
+// Built from the `services` array above so the markup and schema can't drift.
+// Shares the '#business' @id with the homepage FinancialService entity.
+const serviceCatalogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  '@id': SITE_URL + '/#business',
+  name: 'Alissa Whittle',
+  url: SITE_URL + '/',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Financial planning services',
+    itemListElement: services.map((svc) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: svc.title,
+        description: svc.body,
+        provider: { '@id': SITE_URL + '/#business' },
+      },
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: SITE_URL + '/services/' },
+  ],
+};
 ---
 
 <BaseLayout
   title="Services · Alissa Whittle · LPL Financial · Tavernier, FL"
   description="Investment management, retirement income planning, tax coordination, insurance, estate planning support, and education funding through LPL Financial."
+  schema={[serviceCatalogSchema, breadcrumbSchema]}
 >
   <header class="hero hero--compact">
     <div class="wrap">

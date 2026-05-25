@@ -3,11 +3,74 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import portrait from '../assets/photos/headshot-contact.jpg';
+
+const SITE_URL = 'https://www.alissawhittle.com';
+
+// Shares the '#business' @id with the FinancialService on the homepage so Google
+// merges them into one business entity rather than two competing ones.
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  '@id': SITE_URL + '/#business',
+  name: 'Alissa Whittle',
+  image: SITE_URL + '/og-image.jpg',
+  url: SITE_URL + '/',
+  telephone: '+1-305-928-2928',
+  email: 'Alissa.Whittle@LPL.com',
+  priceRange: '$$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '92200 Overseas Highway',
+    addressLocality: 'Tavernier',
+    addressRegion: 'FL',
+    postalCode: '33070',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 25.0078,
+    longitude: -80.5147,
+  },
+  hasMap: 'https://www.google.com/maps/search/?api=1&query=92200%20Overseas%20Highway%2C%20Tavernier%2C%20FL%2033070',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-305-928-2928',
+    email: 'Alissa.Whittle@LPL.com',
+    contactType: 'customer service',
+    areaServed: 'US',
+    availableLanguage: 'English',
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'LPL Financial',
+    url: 'https://www.lpl.com/',
+  },
+};
+
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': SITE_URL + '/contact/#contactpage',
+  url: SITE_URL + '/contact/',
+  name: 'Contact Alissa Whittle',
+  description: 'Call, text, or email Alissa Whittle, Financial Advisor with LPL Financial, in Tavernier, Florida Keys.',
+  mainEntity: { '@id': SITE_URL + '/#business' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: SITE_URL + '/contact/' },
+  ],
+};
 ---
 
 <BaseLayout
   title="Contact · Alissa Whittle · LPL Financial · Tavernier, FL"
   description="Call, text, or email Alissa Whittle, BFA™ CPFA, Financial Advisor with LPL Financial. Office at 92200 Overseas Highway, Tavernier, Florida Keys."
+  schema={[contactPageSchema, businessSchema, breadcrumbSchema]}
 >
   <header class="hero">
     <div class="wrap">
