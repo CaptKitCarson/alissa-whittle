@@ -9,7 +9,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://www.alissawhittle.com',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // /events/ is a "no upcoming events" placeholder — kept for humans but
+      // out of the sitemap (and noindex'd on the page) until it has real content.
+      filter: (page) => !page.includes('/events/'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()]
   }
