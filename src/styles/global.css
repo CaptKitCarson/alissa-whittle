@@ -990,6 +990,44 @@ header.hero.hero--compact {
   .fc-grid { grid-template-columns: 1fr; row-gap: 2.5rem; }
 }
 
+/* ---------- BrokerCheck notice (LPL MRR required) ----------
+   Sits directly below the sticky nav. Must be:
+   - set apart from any paragraph (own element, own row)
+   - visible without scrolling (above the fold, non-sticky bar)
+   - same font size as the majority of body content (--s-body)
+   - prominent ink color (not muted/gray)
+   - NOT in the footer
+*/
+.brokercheck-notice {
+  background: var(--bg-paper);
+  border-bottom: 1px solid var(--border);
+}
+.brokercheck-notice p {
+  margin: 0;
+  padding-block: 0.75rem;
+  font-family: var(--f-body);
+  font-size: var(--s-body);
+  line-height: 1.5;
+  color: var(--ink);
+  text-align: center;
+}
+.brokercheck-notice a {
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom: 1px solid var(--ink);
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.brokercheck-notice a:hover {
+  color: var(--teal-deep);
+  border-bottom-color: var(--teal-deep);
+}
+@media (max-width: 560px) {
+  .brokercheck-notice p {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+}
+
 /* ---------- FOOTER (colophon) ---------- */
 footer.colophon {
   background: var(--bg-paper);
@@ -1113,6 +1151,19 @@ footer.colophon {
   max-width: 60ch;
 }
 .col-disclosure p strong { color: var(--ink-soft); font-weight: 500; }
+.col-disclosure a {
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.col-disclosure a:hover { color: var(--teal-deep); border-bottom-color: var(--teal-deep); }
+.col-crs {
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom: 1px solid var(--rule);
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.col-crs:hover { color: var(--teal-deep); border-bottom-color: var(--teal-deep); }
 .col-meta {
   grid-column: 1 / -1;
   padding-top: 1.75rem;

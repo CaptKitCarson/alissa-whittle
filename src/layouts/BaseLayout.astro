@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
+import BrokerCheckNotice from '../components/BrokerCheckNotice.astro';
 import ComplianceFooter from '../components/ComplianceFooter.astro';
 
 interface Props {
@@ -90,6 +91,7 @@ const GA_ID = 'G-YFQ0RRJ3YF';
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <Nav />
+    <BrokerCheckNotice />
     <main id="main" tabindex="-1">
       <slot />
     </main>
