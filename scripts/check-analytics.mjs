@@ -1,0 +1,23 @@
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const html=readFileSync(process.argv[2] || 'dist/index.html','utf8');
+const code=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]).find(x=>x.includes("gtag('config'"));
+assert.ok(code,'Missing production bootstrap');
+let onClick;
+const window={location:{href:'https://www.alissawhittle.com/contact/?private=yes#fragment'}};
+const document={referrer:'https://example.test/page?private=yes#fragment',addEventListener:(type,fn)=>{if(type==='click')onClick=fn;}};
+class Element { constructor(protocol){this.protocol=protocol;} closest(){return this;} }
+vm.runInNewContext(code,{window,document,Element,URL,Date});
+const configs=window.dataLayer.filter(e=>e[0]==='config');assert.equal(configs.length,1);
+assert.equal(configs[0][1],'G-YFQ0RRJ3YF');
+assert.equal(configs[0][2].page_location,'https://www.alissawhittle.com/contact/');
+assert.equal(configs[0][2].page_referrer,'https://example.test/page');
+assert.ok(window.location.href.includes('?private='));
+onClick({target:new Element('tel:')});onClick({target:new Element('mailto:')});onClick({target:new Element('https:')});
+const events=window.dataLayer.filter(e=>e[0]==='event');
+assert.equal(events.length,2);assert.deepEqual(Array.from(events,e=>e[1]),['contact_link_click','contact_link_click']);
+assert.deepEqual(Array.from(events,e=>e[2].contact_method),['phone','email']);
+assert.ok(events.every(e=>!JSON.stringify(e).includes('private')));
+assert.ok(!events.some(e=>e[1]==='generate_lead'));
+console.log('PASS: one clean GA config, browser URL preserved, phone/email intent events only');
