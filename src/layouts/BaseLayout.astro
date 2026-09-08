@@ -98,6 +98,10 @@ const isPreview = Boolean(process.env.CONTEXT && process.env.CONTEXT !== 'produc
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbsolute} />
 
+    <link rel="preload" href="/fonts/font-6.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/font-3.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/font-13.woff2" as="font" type="font/woff2" crossorigin />
+
     {schemaList.map((item) => (
       <script type="application/ld+json" set:html={JSON.stringify(item)} />
     ))}
