@@ -1,4 +1,5 @@
 ---
+import '../styles/fonts.css';
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import BrokerCheckNotice from '../components/BrokerCheckNotice.astro';
@@ -27,6 +28,7 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).toString();
 const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
 const GA_ID = 'G-YFQ0RRJ3YF';
+const isPreview = Boolean(process.env.CONTEXT && process.env.CONTEXT !== 'production');
 ---
 
 <!doctype html>
@@ -36,14 +38,33 @@ const GA_ID = 'G-YFQ0RRJ3YF';
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
     {/* Google Analytics 4 (gtag.js) — production only, so local dev hits don't skew data */}
-    {import.meta.env.PROD && (
+    {import.meta.env.PROD && !isPreview && !noindex && (
       <Fragment>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} is:inline></script>
         <script define:vars={{ GA_ID }}>
           window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
+          function gtag() { window.dataLayer.push(arguments); }
+          window.gtag = gtag;
+          function analyticsUrl(value) {
+            try { const url = new URL(value); return url.origin + url.pathname; }
+            catch { return ''; }
+          }
           gtag('js', new Date());
-          gtag('config', GA_ID);
+          gtag('config', GA_ID, {
+            page_location: analyticsUrl(window.location.href),
+            page_referrer: analyticsUrl(document.referrer),
+          });
+          document.addEventListener('click', function(event) {
+            const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+            if (!link) return;
+            const protocol = link.protocol;
+            if (protocol !== 'tel:' && protocol !== 'mailto:') return;
+            // Intent only: a click does not confirm a call, email or appointment.
+            gtag('event', 'contact_link_click', {
+              contact_method: protocol === 'tel:' ? 'phone' : 'email',
+              transport_type: 'beacon',
+            });
+          });
         </script>
       </Fragment>
     )}
@@ -51,7 +72,7 @@ const GA_ID = 'G-YFQ0RRJ3YF';
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
+    {(noindex || isPreview) && <meta name="robots" content="noindex, follow" />}
     <meta name="theme-color" content="#3a6a6e" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -77,12 +98,9 @@ const GA_ID = 'G-YFQ0RRJ3YF';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbsolute} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;450;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/fonts/font-6.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/font-3.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/font-13.woff2" as="font" type="font/woff2" crossorigin />
 
     {schemaList.map((item) => (
       <script type="application/ld+json" set:html={JSON.stringify(item)} />

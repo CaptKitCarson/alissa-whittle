@@ -90,6 +90,8 @@ const breadcrumbSchema = {
         <figure class="hero-portrait portrait-figure" aria-label="Portrait of Alissa Whittle">
           <Image
             src={portrait}
+            loading="eager"
+            fetchpriority="high"
             alt="Alissa Whittle, Financial Advisor with LPL Financial"
             widths={[400, 600, 900]}
             sizes="(min-width: 880px) 40vw, 90vw"
@@ -130,8 +132,8 @@ const breadcrumbSchema = {
   </section>
 
   <FinalCTA
-    heading="Or skip the back-and-forth and <i>just grab a slot.</i>"
-    href="/#schedule"
+    heading="Call or email to <i>start a conversation.</i>"
+    href="#ways-to-reach"
     phone={false}
   />
 </BaseLayout>
